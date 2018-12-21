@@ -1,0 +1,77 @@
+{
+  "name": "rr-starter",
+  "version": "0.0.0",
+  "description": "react and redux starter",
+  "keywords": [
+    "react",
+    "redux",
+    "styled-components"
+  ],
+  "homepage": "https://github.com/thegrinder/rr-starter",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thegrinder/rr-starter.git"
+  },
+  "main": "./dist/index.js",
+  "scripts": {
+    "start": "webpack-dev-server --config config/webpack.dev.js",
+    "production": "webpack -p --config config/webpack.prod.js",
+    "lint": "eslint app/. config/.; exit 0",
+    "fix": "eslint --fix app/. config/.; exit 0",
+    "test": "jest"
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile": "<rootDir>/setupTests.js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint && npm run test"
+    }
+  },
+  "author": "Pawel Szczepkowski",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-proposal-export-default-from": "^7.2.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.2.0",
+    "@babel/plugin-transform-runtime": "^7.2.0",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/preset-react": "^7.0.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^23.6.0",
+    "babel-loader": "^8.0.4",
+    "css-loader": "^2.0.2",
+    "eslint": "^5.10.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1",
+    "husky": "^1.2.1",
+    "jest": "^23.6.0",
+    "style-loader": "^0.23.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
+  },
+  "dependencies": {
+    "atomic-ui-kit": "0.0.10",
+    "axios": "^0.18.0",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.7.1",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.5.0",
+    "prop-types": "^15.6.2",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "react-hot-loader": "^4.6.3",
+    "react-intl": "^2.7.2",
+    "react-modal": "^3.8.1",
+    "react-redux": "^6.0.0",
+    "react-router-dom": "^4.3.1",
+    "redux": "^4.0.1",
+    "redux-saga": "^0.16.2",
+    "styled-components": "^4.1.3",
+    "webpack": "^4.28.1"
+  }
+}
