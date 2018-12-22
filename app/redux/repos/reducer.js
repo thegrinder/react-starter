@@ -1,5 +1,5 @@
 import { initialRequestState } from '../helpers';
-import { fetchReposActionTypes, fetchReposReducer } from './fetchRepos';
+import { fetchReposActionTypes, fetchReposReducer } from './requests/fetchRepos';
 
 export const initialReposState = {
   data: [],

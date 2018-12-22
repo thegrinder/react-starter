@@ -1,5 +1,5 @@
 import { all, takeLatest } from 'redux-saga/effects';
-import { fetchReposActionTypes, fetchReposSaga } from './repos/fetchRepos';
+import { fetchReposActionTypes, fetchReposSaga } from './repos/requests/fetchRepos';
 
 export const reposSagas = [
   takeLatest(fetchReposActionTypes.TRIGGER, fetchReposSaga),

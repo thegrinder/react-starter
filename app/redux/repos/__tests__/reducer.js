@@ -1,5 +1,5 @@
 import reposReducer, { initialReposState } from '../reducer';
-import { fetchReposActions } from '../fetchRepos';
+import { fetchReposActions } from '../requests/fetchRepos';
 
 describe('fetchRepos reducer', () => {
   it('return initial state', () => {

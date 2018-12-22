@@ -1,5 +1,5 @@
 import { runSaga } from 'redux-saga';
-import { fetchRepos } from '../requests';
+import { fetchRepos } from '../../requests';
 import {
   fetchReposSucceeded,
   fetchReposTrigger,
@@ -8,7 +8,7 @@ import {
   fetchReposSaga,
 } from '../fetchRepos';
 
-jest.mock('../requests');
+jest.mock('../../requests');
 
 describe('fetchRepos action creators', () => {
   describe('fetchReposSucceeded', () => {

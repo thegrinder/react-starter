@@ -1,6 +1,6 @@
 import { call, put } from 'redux-saga/effects';
-import { createRequest, getError } from '../helpers';
-import { fetchRepos } from './requests';
+import { createRequest, getError } from '../../helpers';
+import { fetchRepos } from '../requests';
 
 const { actionTypes, actionCreators, reducer } = createRequest('repos/requests/fetchRepos');
 

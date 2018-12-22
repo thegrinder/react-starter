@@ -1,2 +1,2 @@
 export * from './selectors';
-export { fetchReposActions, fetchReposActionTypes } from './fetchRepos';
+export { fetchReposActions, fetchReposActionTypes } from './requests/fetchRepos';
