@@ -1,3 +1,3 @@
-import { axiosInstance } from '../helpers';
+import axios from '../axios';
 
-export const fetchRepos = queryParams => axiosInstance.get('/search/repositories', { params: queryParams });
+export const fetchRepos = queryParams => axios.get('/search/repositories', { params: queryParams });

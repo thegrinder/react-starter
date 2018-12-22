@@ -1,9 +1,3 @@
-import axios from 'axios';
-
-export const axiosInstance = axios.create({
-  baseURL: 'https://api.github.com',
-});
-
 export const initialRequestState = {
   error: null,
   initialLoad: true,
