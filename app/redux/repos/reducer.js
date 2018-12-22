@@ -1,4 +1,4 @@
-import { initialRequestState } from '../../helpers/request-redux';
+import { initialRequestState } from '../helpers';
 import { fetchReposActionTypes, fetchReposReducer } from './fetchRepos';
 
 const initialReposState = {
