@@ -1,4 +1,4 @@
-import { createRequest, initialRequestState } from '../request-redux';
+import { createRequest, initialRequestState } from '../helpers';
 
 const { actionCreators, actionTypes, reducer } = createRequest('test');
 const error = 'error';

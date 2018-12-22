@@ -1,32 +1,23 @@
 import { call, put } from 'redux-saga/effects';
-import axiosInstance from '../../helpers/axios';
-import { createRequest } from '../../helpers/request-redux';
+import { axiosInstance, createRequest, getError } from '../helpers';
 
-const namespace = 'repos/requests/fetchRepos';
+const { actionTypes, actionCreators, reducer } = createRequest('repos/requests/fetchRepos');
 
-const requestRedux = createRequest(namespace);
-
-const FETCH_REPOS_SUCCEEDED = `${namespace}/FETCH_REPOS_SUCCEEDED`;
-const FETCH_REPOS_TRIGGER = `${namespace}/FETCH_REPOS_TRIGGER`;
-
-export const fetchReposActionTypes = {
-  ...requestRedux.actionTypes,
-  SUCCEEDED: FETCH_REPOS_SUCCEEDED,
-  TRIGGER: FETCH_REPOS_TRIGGER,
-};
+export const fetchReposActionTypes = actionTypes;
+export const fetchReposReducer = reducer;
 
 export const fetchReposSucceeded = data => ({
   data,
-  type: FETCH_REPOS_SUCCEEDED,
+  type: actionTypes.SUCCEEDED,
 });
 
 export const fetchReposTrigger = (queryParams = {}) => ({
   queryParams,
-  type: FETCH_REPOS_TRIGGER,
+  type: actionTypes.TRIGGER,
 });
 
 export const fetchReposActions = {
-  ...requestRedux.actionCreators,
+  ...actionCreators,
   succeeded: fetchReposSucceeded,
   trigger: fetchReposTrigger,
 };
@@ -39,10 +30,8 @@ export function* fetchReposSaga(action) {
     const { data } = yield call(request, action.queryParams);
     yield put(fetchReposActions.succeeded(data.items));
   } catch (error) {
-    yield put(fetchReposActions.failed(error));
+    yield put(fetchReposActions.failed(getError(error)));
   } finally {
     yield put(fetchReposActions.fulfilled());
   }
 }
-
-export const fetchReposReducer = requestRedux.reducer;

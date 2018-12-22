@@ -1,3 +1,9 @@
+import axios from 'axios';
+
+export const axiosInstance = axios.create({
+  baseURL: 'https://api.github.com',
+});
+
 export const initialRequestState = {
   error: null,
   initialLoad: true,
@@ -10,6 +16,8 @@ export const createRequest = (namespace) => {
     FULFILLED: `${namespace}/FULFILLED`,
     LOADING: `${namespace}/LOADING`,
     RESET: `${namespace}/RESET`,
+    SUCCEEDED: `${namespace}/SUCCEEDED`,
+    TRIGGER: `${namespace}/TRIGGER`,
   };
 
   const actionCreators = {
@@ -49,5 +57,16 @@ export const createRequest = (namespace) => {
     actionCreators,
     actionTypes,
     reducer,
+  };
+};
+
+export const getError = (error) => {
+  const message = error && error.response && error.response.data
+    ? error.response.data.message
+    : error.message;
+  return {
+    message,
+    method: error.config.method,
+    status: error.response.status,
   };
 };
