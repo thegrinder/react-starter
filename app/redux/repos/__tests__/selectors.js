@@ -1,7 +1,5 @@
-import { reposSelectors } from '../selectors';
-import { initialRequestState } from '../helpers';
-
-const { getReposState, getFetchReposRequestState, getRepos } = reposSelectors;
+import { getReposState, getFetchReposRequestState, getRepos } from '../selectors';
+import { initialRequestState } from '../../helpers';
 
 const state = {
   repos: {
