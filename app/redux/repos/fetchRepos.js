@@ -1,5 +1,6 @@
 import { call, put } from 'redux-saga/effects';
-import { axiosInstance, createRequest, getError } from '../helpers';
+import { createRequest, getError } from '../helpers';
+import { fetchRepos } from './requests';
 
 const { actionTypes, actionCreators, reducer } = createRequest('repos/requests/fetchRepos');
 
@@ -22,12 +23,10 @@ export const fetchReposActions = {
   trigger: fetchReposTrigger,
 };
 
-export const request = queryParams => axiosInstance.get('/search/repositories', { params: queryParams });
-
 export function* fetchReposSaga(action) {
   yield put(fetchReposActions.loading());
   try {
-    const { data } = yield call(request, action.queryParams);
+    const { data } = yield call(fetchRepos, action.queryParams);
     yield put(fetchReposActions.succeeded(data.items));
   } catch (error) {
     yield put(fetchReposActions.failed(getError(error)));

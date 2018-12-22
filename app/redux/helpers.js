@@ -60,13 +60,12 @@ export const createRequest = (namespace) => {
   };
 };
 
-export const getError = (error) => {
-  const message = error && error.response && error.response.data
-    ? error.response.data.message
-    : error.message;
-  return {
-    message,
-    method: error.config.method,
-    status: error.response.status,
-  };
-};
+export const getError = error => (
+  error.response
+    ? {
+      message: error.response.data ? error.response.data.message : error.message,
+      method: error.config.method,
+      status: error.response.status,
+    }
+    : error
+);
