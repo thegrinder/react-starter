@@ -1,16 +1,22 @@
 import { getReposState, getFetchReposRequestState, getRepos } from '../selectors';
 import { initialRequestState } from '../../helpers';
 
+const data = {
+  1: {
+    name: 'repo',
+  },
+};
+
+const fetchReposState = {
+  ...initialRequestState,
+  error: 'error',
+};
+
 const state = {
   repos: {
-    data: {
-      1: {
-        name: 'repo',
-      },
-    },
-    fetchRepos: {
-      ...initialRequestState,
-      error: 'error',
+    data,
+    requests: {
+      fetchRepos: fetchReposState,
     },
   },
 };
@@ -24,13 +30,13 @@ describe('reposSelectors', () => {
 
   describe('getFetchReposRequestState', () => {
     it('should return fetchRepos request state', () => {
-      expect(getFetchReposRequestState(state)).toEqual(state.repos.fetchRepos);
+      expect(getFetchReposRequestState(state)).toEqual(fetchReposState);
     });
   });
 
   describe('getRepos', () => {
     it('should return fetched repos', () => {
-      expect(getRepos(state)).toEqual(state.repos.data);
+      expect(getRepos(state)).toEqual(data);
     });
   });
 });

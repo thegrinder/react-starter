@@ -3,7 +3,9 @@ import { fetchReposActionTypes, fetchReposReducer } from './requests/fetchRepos'
 
 export const initialReposState = {
   data: [],
-  fetchRepos: initialRequestState,
+  requests: {
+    fetchRepos: initialRequestState,
+  },
 };
 
 const reposReducer = (state = initialReposState, action) => {
@@ -16,7 +18,10 @@ const reposReducer = (state = initialReposState, action) => {
     default:
       return {
         ...state,
-        fetchRepos: fetchReposReducer(state.fetchRepos, action),
+        requests: {
+          ...state.requests,
+          fetchRepos: fetchReposReducer(state.fetchRepos, action),
+        },
       };
   }
 };
