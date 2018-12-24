@@ -37,6 +37,13 @@ const prodConfig = {
             loader: MiniCssExtractPlugin.loader,
           },
           'css-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              ident: 'postcss',
+              plugins: () => [require('tailwindcss')('./tailwind.js')],
+            },
+          },
         ],
       },
     ],

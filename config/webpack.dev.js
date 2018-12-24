@@ -43,6 +43,13 @@ const devConfig = {
         use: [
           { loader: 'style-loader' },
           { loader: 'css-loader' },
+          {
+            loader: 'postcss-loader',
+            options: {
+              ident: 'postcss',
+              plugins: () => [require('tailwindcss')('./tailwind.js')],
+            },
+          },
         ],
       },
     ],
