@@ -1,18 +1,20 @@
 {
-  parser: "babel-eslint",
-  env: {
-    es6: true,
-    browser: true,
-    jest: true
+  "parser": "babel-eslint",
+  "env": {
+    "es6": true,
+    "browser": true,
+    "jest": true
   },
-  extends: "airbnb",
-  plugins: ["react"],
-    parserOptions: {
-    ecmaFeatures: {
-      jsx: true
+  "extends": "airbnb",
+  "plugins": [
+    "react"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
     }
   },
-  rules: {
+  "rules": {
     "react/jsx-uses-react": "error",
     "react/jsx-filename-extension": "off",
     "no-underscore-dangle": "off",
