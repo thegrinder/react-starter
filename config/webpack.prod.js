@@ -1,6 +1,7 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const tailwindcss = require('tailwindcss');
 const PATHS = require('./paths');
 
 const htmlPlugin = new HtmlWebpackPlugin({
@@ -41,7 +42,7 @@ const prodConfig = {
             loader: 'postcss-loader',
             options: {
               ident: 'postcss',
-              plugins: () => [require('tailwindcss')('./tailwind.js')],
+              plugins: () => [tailwindcss('./tailwind.js')],
             },
           },
         ],
