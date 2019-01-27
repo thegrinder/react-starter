@@ -27,6 +27,11 @@ const prodConfig = {
     filename: 'index.js',
     publicPath: '/',
   },
+  resolve: {
+    alias: {
+      '@': path.join(__dirname, '../app'),
+    },
+  },
   module: {
     rules: [
       {

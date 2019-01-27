@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { Test, GlobalStyles } from '../../components';
+import { Test, GlobalStyles } from '@/components';
 
 const Main = () => (
   <Fragment>

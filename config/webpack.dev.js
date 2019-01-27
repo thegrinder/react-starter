@@ -32,6 +32,11 @@ const devConfig = {
     hot: true,
     publicPath: '/',
   },
+  resolve: {
+    alias: {
+      '@': path.join(__dirname, '../app'),
+    },
+  },
   module: {
     rules: [
       {

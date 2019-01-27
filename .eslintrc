@@ -15,10 +15,29 @@
     }
   },
   "rules": {
+    "no-underscore-dangle": "off",
+    "consistent-return": "off",
     "react/jsx-uses-react": "error",
     "react/jsx-filename-extension": "off",
-    "no-underscore-dangle": "off",
     "import/prefer-default-export": "off",
-    "global-require": "off"
+    "import/no-named-as-default": "off",
+    "react/forbid-prop-types": "off",
+    "object-curly-newline": [
+      "error",
+      {
+        "ImportDeclaration": {
+          "multiline": true,
+          "minProperties": 4
+        }
+      }
+    ],
+    "jsx-a11y/label-has-for": "off"
+  },
+  "settings": {
+    "import/resolver": {
+      "webpack": {
+        "config": "./config/webpack.dev.js"
+      }
+    }
   }
 }
