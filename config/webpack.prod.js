@@ -1,6 +1,7 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const tailwindcss = require('tailwindcss');
 const PATHS = require('./paths');
 
@@ -13,6 +14,8 @@ const htmlPlugin = new HtmlWebpackPlugin({
 const extractCss = new MiniCssExtractPlugin({
   filename: 'main.css',
 });
+
+const analyzer = new BundleAnalyzerPlugin();
 
 const prodConfig = {
   mode: 'production',
@@ -49,7 +52,7 @@ const prodConfig = {
       },
     ],
   },
-  plugins: [htmlPlugin, extractCss],
+  plugins: [htmlPlugin, extractCss, analyzer],
 };
 
 module.exports = prodConfig;
