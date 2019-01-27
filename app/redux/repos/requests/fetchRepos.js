@@ -1,5 +1,5 @@
 import { call, put } from 'redux-saga/effects';
-import { createRequest, getError } from '../../helpers';
+import { createRequest } from '../../helpers';
 import { fetchRepos } from '../requests';
 
 const { actionTypes, actionCreators, reducer } = createRequest('repos/requests/fetchRepos');
@@ -29,7 +29,7 @@ export function* fetchReposSaga(action) {
     const { data } = yield call(fetchRepos, action.queryParams);
     yield put(fetchReposActions.succeeded(data.items));
   } catch (error) {
-    yield put(fetchReposActions.failed(getError(error)));
+    yield put(fetchReposActions.failed(error));
   } finally {
     yield put(fetchReposActions.fulfilled());
   }

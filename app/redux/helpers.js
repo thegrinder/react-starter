@@ -1,5 +1,5 @@
 export const initialRequestState = {
-  error: null,
+  error: {},
   initialLoad: true,
   loading: false,
 };
@@ -26,7 +26,7 @@ export const createRequest = (namespace) => {
       case actionTypes.LOADING:
         return {
           ...state,
-          error: null,
+          error: {},
           loading: true,
         };
       case actionTypes.FAILED:
@@ -53,13 +53,3 @@ export const createRequest = (namespace) => {
     reducer,
   };
 };
-
-export const getError = error => (
-  error.response
-    ? {
-      message: error.response.data ? error.response.data.message : error.message,
-      method: error.config.method,
-      status: error.response.status,
-    }
-    : error
-);
