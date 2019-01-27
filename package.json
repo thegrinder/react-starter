@@ -1,11 +1,12 @@
 {
   "name": "rr-starter",
   "version": "0.0.0",
-  "description": "react and redux starter",
+  "description": "React redux starter",
   "keywords": [
     "react",
     "redux",
-    "styled-components"
+    "styled-components",
+    "redux-saga"
   ],
   "homepage": "https://github.com/thegrinder/rr-starter",
   "repository": {
@@ -15,7 +16,7 @@
   "main": "./dist/index.js",
   "scripts": {
     "start": "webpack-dev-server --config config/webpack.dev.js",
-    "production": "webpack -p --config config/webpack.prod.js",
+    "production": "webpack --config config/webpack.prod.js",
     "test": "jest"
   },
   "husky": {
