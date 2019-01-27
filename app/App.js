@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { ThemeProvider } from 'styled-components';
-import { theme } from 'atomic-ui-kit';
+import { theme } from 'basic-styled-uikit';
 import { HashRouter, Route } from 'react-router-dom';
 import { IntlProvider } from 'react-intl';
-import 'atomic-ui-kit/lib/atomic-ui-kit.min.css';
 import './main.css';
 
 import { Main } from './containers';

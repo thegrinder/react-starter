@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from 'atomic-ui-kit';
+import { Button } from 'basic-styled-uikit';
 
 const Test = () => <Button>Test</Button>;
 
