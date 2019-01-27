@@ -16,14 +16,18 @@
   "scripts": {
     "start": "webpack-dev-server --config config/webpack.dev.js",
     "production": "webpack -p --config config/webpack.prod.js",
-    "lint": "eslint app/. config/.; exit 0",
-    "fix": "eslint --fix app/. config/.; exit 0",
     "test": "jest"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint && npm run test"
+      "pre-commit": "lint-staged && npm run test"
     }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
   },
   "author": "Pawel Szczepkowski",
   "license": "MIT",
@@ -47,6 +51,7 @@
     "eslint-plugin-react": "^7.11.1",
     "husky": "^1.2.1",
     "jest": "^23.6.0",
+    "lint-staged": "^8.1.0",
     "postcss-loader": "^3.0.0",
     "style-loader": "^0.23.1",
     "webpack-cli": "^3.1.2",
