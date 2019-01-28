@@ -44,7 +44,13 @@ const prodConfig = {
       new OptimizeCSSAssetsPlugin({}),
     ],
     splitChunks: {
-      chunks: 'all',
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/](react|react-dom|styled-components)[\\/]/,
+          name: 'vendor',
+          chunks: 'all',
+        },
+      },
     },
   },
   module: {
