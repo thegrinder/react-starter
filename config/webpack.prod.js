@@ -2,6 +2,8 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const tailwindcss = require('tailwindcss');
 const PATHS = require('./paths');
 
@@ -30,6 +32,19 @@ const prodConfig = {
   resolve: {
     alias: {
       '@': path.join(__dirname, '../app'),
+    },
+  },
+  optimization: {
+    minimizer: [
+      new TerserPlugin({
+        cache: true,
+        parallel: true,
+        sourceMap: true,
+      }),
+      new OptimizeCSSAssetsPlugin({}),
+    ],
+    splitChunks: {
+      chunks: 'all',
     },
   },
   module: {
