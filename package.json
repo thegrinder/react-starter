@@ -63,6 +63,7 @@
     "atomic-ui-kit": "0.0.10",
     "axios": "^0.18.0",
     "basic-styled-uikit": "^0.9.0",
+    "compression-webpack-plugin": "^2.0.0",
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.5.0",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
