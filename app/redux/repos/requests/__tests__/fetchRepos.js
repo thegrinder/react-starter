@@ -1,8 +1,6 @@
 import { runSaga } from 'redux-saga';
 import { fetchRepos } from '../../requests';
 import {
-  fetchReposSucceeded,
-  fetchReposTrigger,
   fetchReposActionTypes,
   fetchReposActions,
   fetchReposSaga,
@@ -11,14 +9,14 @@ import {
 jest.mock('../../requests');
 
 describe('fetchRepos action creators', () => {
-  describe('fetchReposSucceeded', () => {
-    it('should return SUCCEEDED action type', () => {
+  describe('fetchReposUpdate', () => {
+    it('should return UPDATE action type', () => {
       const data = {};
       const expectedAction = {
-        type: fetchReposActionTypes.SUCCEEDED,
+        type: fetchReposActionTypes.UPDATE,
         data,
       };
-      expect(fetchReposSucceeded(data)).toEqual(expectedAction);
+      expect(fetchReposActions.update(data)).toEqual(expectedAction);
     });
   });
 
@@ -29,7 +27,7 @@ describe('fetchRepos action creators', () => {
         type: fetchReposActionTypes.TRIGGER,
         queryParams,
       };
-      expect(fetchReposTrigger(queryParams)).toEqual(expectedAction);
+      expect(fetchReposActions.trigger(queryParams)).toEqual(expectedAction);
     });
   });
 });
@@ -48,12 +46,13 @@ describe('fetchReposSaga', () => {
 
     await runSaga({
       dispatch: action => dispatched.push(action),
-      getState: () => {},
+      getState: () => { },
     }, fetchReposSaga, { queryParams }).done;
 
     const expectedActions = [
       fetchReposActions.loading(),
-      fetchReposActions.succeeded(response.data.items),
+      fetchReposActions.update(response.data.items),
+      fetchReposActions.succeeded(),
       fetchReposActions.fulfilled(),
     ];
     expect(fetchRepos).toBeCalledWith(queryParams);
@@ -66,7 +65,7 @@ describe('fetchReposSaga', () => {
 
     await runSaga({
       dispatch: action => dispatched.push(action),
-      getState: () => {},
+      getState: () => { },
     }, fetchReposSaga, { queryParams }).done;
 
     const expectedActions = [

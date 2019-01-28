@@ -6,13 +6,13 @@ describe('fetchRepos reducer', () => {
     expect(reposReducer(initialReposState, { type: 'NOOP' })).toEqual(initialReposState);
   });
 
-  it('handles SUCCEEDED action properly', () => {
+  it('handles UPDATE action properly', () => {
     const data = { 1: 'test' };
     const expectedState = {
       ...initialReposState,
       data,
     };
-    expect(reposReducer(initialReposState, fetchReposActions.succeeded(data)))
+    expect(reposReducer(initialReposState, fetchReposActions.update(data)))
       .toEqual(expectedState);
   });
 });

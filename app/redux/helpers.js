@@ -2,6 +2,7 @@ export const initialRequestState = {
   error: {},
   initialLoad: true,
   loading: false,
+  succeeded: false,
 };
 
 export const createRequest = (namespace) => {
@@ -10,12 +11,14 @@ export const createRequest = (namespace) => {
     FULFILLED: `${namespace}/FULFILLED`,
     LOADING: `${namespace}/LOADING`,
     RESET: `${namespace}/RESET`,
+    UPDATE: `${namespace}/UPDATE`,
     SUCCEEDED: `${namespace}/SUCCEEDED`,
     TRIGGER: `${namespace}/TRIGGER`,
   };
 
   const actionCreators = {
     failed: error => ({ error, type: actionTypes.FAILED }),
+    succeeded: () => ({ type: actionTypes.SUCCEEDED }),
     fulfilled: () => ({ type: actionTypes.FULFILLED }),
     loading: () => ({ type: actionTypes.LOADING }),
     reset: () => ({ type: actionTypes.RESET }),
@@ -28,6 +31,12 @@ export const createRequest = (namespace) => {
           ...state,
           error: {},
           loading: true,
+          succeeded: false,
+        };
+      case actionTypes.SUCCEEDED:
+        return {
+          ...state,
+          succeeded: true,
         };
       case actionTypes.FAILED:
         return {
@@ -41,7 +50,10 @@ export const createRequest = (namespace) => {
           loading: false,
         };
       case actionTypes.RESET:
-        return initialRequestState;
+        return {
+          ...initialRequestState,
+          initialLoad: state.initialLoad,
+        };
       default:
         return state;
     }

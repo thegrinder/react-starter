@@ -1,11 +1,24 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { Test, GlobalStyles } from '@/components';
+import { fetchReposActions } from '@/redux/repos';
 
-const Main = () => (
+const propTypes = {
+  fetchRepos: PropTypes.func.isRequired,
+};
+
+const Main = ({ fetchRepos }) => (
   <Fragment>
     <GlobalStyles />
-    <Test />
+    <Test onClick={() => fetchRepos({ q: 'bla' })} />
   </Fragment>
 );
 
-export default Main;
+Main.propTypes = propTypes;
+
+const mapDispatchToProps = {
+  fetchRepos: fetchReposActions.trigger,
+};
+
+export default connect(undefined, mapDispatchToProps)(Main);

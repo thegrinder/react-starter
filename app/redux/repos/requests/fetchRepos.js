@@ -7,9 +7,9 @@ const { actionTypes, actionCreators, reducer } = createRequest('repos/requests/f
 export const fetchReposActionTypes = actionTypes;
 export const fetchReposReducer = reducer;
 
-export const fetchReposSucceeded = data => ({
+export const fetchReposUpdate = data => ({
   data,
-  type: actionTypes.SUCCEEDED,
+  type: actionTypes.UPDATE,
 });
 
 export const fetchReposTrigger = (queryParams = {}) => ({
@@ -19,7 +19,7 @@ export const fetchReposTrigger = (queryParams = {}) => ({
 
 export const fetchReposActions = {
   ...actionCreators,
-  succeeded: fetchReposSucceeded,
+  update: fetchReposUpdate,
   trigger: fetchReposTrigger,
 };
 
@@ -27,7 +27,8 @@ export function* fetchReposSaga(action) {
   yield put(fetchReposActions.loading());
   try {
     const { data } = yield call(fetchRepos, action.queryParams);
-    yield put(fetchReposActions.succeeded(data.items));
+    yield put(fetchReposActions.update(data.items));
+    yield put(fetchReposActions.succeeded());
   } catch (error) {
     yield put(fetchReposActions.failed(error));
   } finally {

@@ -11,6 +11,13 @@ describe('actions', () => {
     expect(actionCreators.loading()).toEqual(expectedAction);
   });
 
+  it('should create SUCCEEDED action', () => {
+    const expectedAction = {
+      type: actionTypes.SUCCEEDED,
+    };
+    expect(actionCreators.succeeded()).toEqual(expectedAction);
+  });
+
   it('should create FAILED action', () => {
     const expectedAction = {
       error,
@@ -49,6 +56,16 @@ describe('reducer', () => {
     );
   });
 
+  it('should handle SUCCEEDED action', () => {
+    const expectedState = {
+      ...initialRequestState,
+      succeeded: true,
+    };
+    expect(reducer(initialRequestState, actionCreators.succeeded())).toEqual(
+      expectedState,
+    );
+  });
+
   it('should handle FAILED action', () => {
     const expectedState = {
       ...initialRequestState,
@@ -78,6 +95,10 @@ describe('reducer', () => {
       initialLoad: false,
       loading: false,
     };
-    expect(reducer(state, actionCreators.reset())).toEqual(initialRequestState);
+    const expectedState = {
+      ...initialRequestState,
+      initialLoad: false,
+    };
+    expect(reducer(state, actionCreators.reset())).toEqual(expectedState);
   });
 });

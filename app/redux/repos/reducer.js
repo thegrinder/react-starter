@@ -10,7 +10,7 @@ export const initialReposState = {
 
 const reposReducer = (state = initialReposState, action) => {
   switch (action.type) {
-    case fetchReposActionTypes.SUCCEEDED:
+    case fetchReposActionTypes.UPDATE:
       return {
         ...state,
         data: action.data,
