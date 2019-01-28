@@ -14,13 +14,21 @@ const htmlPlugin = new HtmlWebpackPlugin({
   inject: 'body',
 });
 
-const extractCss = new MiniCssExtractPlugin({
+const extractCssPlugin = new MiniCssExtractPlugin({
   filename: 'main.css',
 });
 
-const analyzer = new BundleAnalyzerPlugin();
+const analyzerPlugin = new BundleAnalyzerPlugin();
 
-const compression = new CompressionPlugin();
+const compressionPlugin = new CompressionPlugin();
+
+const terserPlugin = new TerserPlugin({
+  cache: true,
+  parallel: true,
+  sourceMap: true,
+});
+
+const optimizeCssPlugin = new OptimizeCSSAssetsPlugin({});
 
 const prodConfig = {
   mode: 'production',
@@ -39,12 +47,8 @@ const prodConfig = {
   },
   optimization: {
     minimizer: [
-      new TerserPlugin({
-        cache: true,
-        parallel: true,
-        sourceMap: true,
-      }),
-      new OptimizeCSSAssetsPlugin({}),
+      terserPlugin,
+      optimizeCssPlugin,
     ],
     splitChunks: {
       chunks: 'all',
@@ -77,9 +81,9 @@ const prodConfig = {
   },
   plugins: [
     htmlPlugin,
-    extractCss,
-    compression,
-    analyzer,
+    extractCssPlugin,
+    compressionPlugin,
+    analyzerPlugin,
   ],
 };
 
