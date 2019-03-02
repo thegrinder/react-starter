@@ -1,24 +1,19 @@
-import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { Test, GlobalStyles } from '@/components';
-import { fetchReposActions } from '@/redux/repos';
+import React from 'react';
+import { ResetCss } from 'basic-styled-uikit';
+import { Route, Switch } from 'react-router-dom';
 
-const propTypes = {
-  fetchRepos: PropTypes.func.isRequired,
-};
+import { GlobalStyles } from '@/components';
+import Users from '@/containers/Users';
+import User from '@/containers/User';
 
-const Main = ({ fetchRepos }) => (
-  <Fragment>
+const Main = () => (
+  <div>
+    <ResetCss />
     <GlobalStyles />
-    <Test onClick={() => fetchRepos({ q: 'bla' })} />
-  </Fragment>
+    <Switch>
+      <Route path="/users/:uid" component={User} />
+      <Route path="/users" component={Users} />
+    </Switch>
+  </div>
 );
-
-Main.propTypes = propTypes;
-
-const mapDispatchToProps = {
-  fetchRepos: fetchReposActions.trigger,
-};
-
-export default connect(undefined, mapDispatchToProps)(Main);
+export default Main;
