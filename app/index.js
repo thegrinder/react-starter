@@ -1,25 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
-import { Provider } from 'react-redux';
 import Modal from 'react-modal';
 
-import App from './App';
-import { configureStore, runSaga } from './store';
-
-
-const store = configureStore();
-
-runSaga();
+import App from './containers/App';
+import './main.css';
 
 Modal.setAppElement('#app');
 
 const render = (Component) => {
   ReactDOM.render(
     <AppContainer warnings={false}>
-      <Provider store={store}>
-        <Component />
-      </Provider>
+      <Component />
     </AppContainer>,
     document.getElementById('app'),
   );
@@ -28,7 +20,7 @@ const render = (Component) => {
 render(App);
 
 if (module.hot) {
-  module.hot.accept('./App', () => {
+  module.hot.accept('./containers/App', () => {
     render(App);
   });
 }
