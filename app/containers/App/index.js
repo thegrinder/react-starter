@@ -3,6 +3,7 @@ import { Provider } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 import { HashRouter, Route } from 'react-router-dom';
 import { IntlProvider } from 'react-intl';
+import { ResetCss } from 'basic-styled-uikit';
 import theme from 'basic-styled-uikit/dist/theme';
 
 import { configureStore, runSaga } from '../../store';
@@ -20,7 +21,10 @@ class App extends Component { // eslint-disable-line react/prefer-stateless-func
         <IntlProvider locale="en">
           <ThemeProvider theme={theme}>
             <HashRouter>
-              <Route path="/" component={Main} />
+              <div>
+                <ResetCss />
+                <Route path="/" component={Main} />
+              </div>
             </HashRouter>
           </ThemeProvider>
         </IntlProvider>
