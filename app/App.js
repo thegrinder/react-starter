@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
+import theme from 'basic-styled-uikit/dist/theme';
 import { ThemeProvider } from 'styled-components';
-import { theme } from 'basic-styled-uikit';
 import { HashRouter, Route } from 'react-router-dom';
 import { IntlProvider } from 'react-intl';
 import './main.css';
