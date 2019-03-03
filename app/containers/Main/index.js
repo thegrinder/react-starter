@@ -1,18 +1,28 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { ResetCss } from 'basic-styled-uikit';
 import { Route, Switch } from 'react-router-dom';
 
 import { GlobalStyles } from '@/components';
-import Users from '@/containers/Users';
-import User from '@/containers/User';
+
+const createLazyComponent = Component => () => (
+  <Suspense fallback={<span>loading</span>}>
+    <Component />
+  </Suspense>
+);
+
+const Users = lazy(() => import('@/containers/Users'));
+const User = lazy(() => import('@/containers/User'));
+
+const LazyUsers = createLazyComponent(Users);
+const LazyUser = createLazyComponent(User);
 
 const Main = () => (
   <div>
     <ResetCss />
     <GlobalStyles />
     <Switch>
-      <Route path="/users/:uid" component={User} />
-      <Route path="/users" component={Users} />
+      <Route path="/users/:uid" component={LazyUser} />
+      <Route path="/users" component={LazyUsers} />
     </Switch>
   </div>
 );
