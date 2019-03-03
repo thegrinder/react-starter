@@ -3,11 +3,11 @@ import { Provider } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 import { HashRouter, Route } from 'react-router-dom';
 import { IntlProvider } from 'react-intl';
-import theme from 'basic-styled-uikit/dist/theme';
 
-import { configureStore, runSaga } from '../../store';
+import { configureStore, runSaga } from '@/store';
+import theme from '@/theme/components';
+import '@/main.css';
 import Main from '../Main';
-import '../../main.css';
 
 const store = configureStore();
 

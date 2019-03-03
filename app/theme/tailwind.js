@@ -96,7 +96,7 @@ module.exports = {
     100: '1',
   },
   modules: {
-    // tailwind config OK
+    // standard tailwind styles
     flexbox: ['responsive'],
     height: [],
     leading: [],
@@ -110,7 +110,7 @@ module.exports = {
     width: [],
     zIndex: [],
 
-    // tailwind config not OK - styles covered by plugins
+    // styles covered by plugins
     borderRadius: false,
     borderStyle: false,
     borderWidths: false,

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { Button } from 'basic-styled-uikit';
 import { fetchUsersActions, getUsers } from '@/redux/users';
 
 const propTypes = {
@@ -11,7 +12,7 @@ const propTypes = {
 const Users = ({ fetchUsers, users }) => {
   console.log(fetchUsers, users);
   return (
-    <div>Users</div>
+    <Button>Users</Button>
   );
 };
 

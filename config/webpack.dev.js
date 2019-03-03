@@ -46,7 +46,7 @@ const devConfig = {
             loader: 'postcss-loader',
             options: {
               ident: 'postcss',
-              plugins: () => [tailwindcss('./tailwind.js')],
+              plugins: () => [tailwindcss('./app/theme/tailwind.js')],
             },
           },
         ],
