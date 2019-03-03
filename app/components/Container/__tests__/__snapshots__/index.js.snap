@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Container /> should render correctly with default props and children 1`] = `
+<div
+  class="sc-bdVaJa hGfkPm"
+>
+  <span>
+    children
+  </span>
+</div>
+`;

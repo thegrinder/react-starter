@@ -27,7 +27,7 @@ const devConfig = {
   },
   resolve: {
     alias: {
-      '@': path.join(__dirname, '../app'),
+      app: PATHS.app,
     },
   },
   module: {

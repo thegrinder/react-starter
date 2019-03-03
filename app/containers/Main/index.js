@@ -2,7 +2,7 @@ import React, { lazy, Suspense } from 'react';
 import { ResetCss } from 'basic-styled-uikit';
 import { Route, Switch } from 'react-router-dom';
 
-import { GlobalStyles, Container } from '@/components';
+import { GlobalStyles, Container } from 'app/components';
 
 const createLazyComponent = Component => () => (
   <Suspense fallback={<span>loading</span>}>
@@ -10,8 +10,8 @@ const createLazyComponent = Component => () => (
   </Suspense>
 );
 
-const Users = lazy(() => import('@/containers/Users'));
-const User = lazy(() => import('@/containers/User'));
+const Users = lazy(() => import('app/containers/Users'));
+const User = lazy(() => import('app/containers/User'));
 
 const LazyUsers = createLazyComponent(Users);
 const LazyUser = createLazyComponent(User);
