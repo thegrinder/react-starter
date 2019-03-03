@@ -27,7 +27,7 @@ export function* fetchUsersSaga(action) {
   yield put(fetchUsersActions.loading());
   try {
     const { data } = yield call(fetchUsers, action.queryParams);
-    yield put(fetchUsersActions.update(data.items));
+    yield put(fetchUsersActions.update(data));
     yield put(fetchUsersActions.succeeded());
   } catch (error) {
     yield put(fetchUsersActions.failed(error));

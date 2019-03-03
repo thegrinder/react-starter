@@ -41,7 +41,7 @@ describe('fetchUsersSaga', () => {
   });
 
   it('should dispatch successful request actions', async () => {
-    const response = { data: { items: {} } };
+    const response = { data: {} };
     fetchUsers.mockResolvedValueOnce(response);
 
     await runSaga({
@@ -51,7 +51,7 @@ describe('fetchUsersSaga', () => {
 
     const expectedActions = [
       fetchUsersActions.loading(),
-      fetchUsersActions.update(response.data.items),
+      fetchUsersActions.update(response.data),
       fetchUsersActions.succeeded(),
       fetchUsersActions.fulfilled(),
     ];
