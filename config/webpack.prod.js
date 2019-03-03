@@ -15,7 +15,7 @@ const htmlPlugin = new HtmlWebpackPlugin({
 });
 
 const extractCssPlugin = new MiniCssExtractPlugin({
-  filename: 'main.css',
+  filename: 'index.css',
 });
 
 const analyzerPlugin = new BundleAnalyzerPlugin();

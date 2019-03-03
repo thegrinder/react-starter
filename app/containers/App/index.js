@@ -6,8 +6,8 @@ import { IntlProvider } from 'react-intl';
 
 import { configureStore, runSaga } from 'app/redux/store';
 import theme from 'app/theme/components';
-import 'app/main.css';
 import Main from '../Main';
+import 'app/index.css';
 
 const store = configureStore();
 
