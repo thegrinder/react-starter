@@ -1,12 +1,12 @@
 import { all, takeLatest } from 'redux-saga/effects';
-import { fetchReposActionTypes, fetchReposSaga } from './repos/requests/fetchRepos';
+import { fetchUsersActionTypes, fetchUsersSaga } from './users/requests/fetchUsers';
 
-export const reposSagas = [
-  takeLatest(fetchReposActionTypes.TRIGGER, fetchReposSaga),
+export const usersSagas = [
+  takeLatest(fetchUsersActionTypes.TRIGGER, fetchUsersSaga),
 ];
 
 function* rootSaga() {
-  yield all([...reposSagas]);
+  yield all([...usersSagas]);
 }
 
 export default rootSaga;

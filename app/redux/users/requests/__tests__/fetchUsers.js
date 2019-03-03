@@ -1,38 +1,38 @@
 import { runSaga } from 'redux-saga';
-import { fetchRepos } from '../../requests';
+import { fetchUsers } from '../../requests';
 import {
-  fetchReposActionTypes,
-  fetchReposActions,
-  fetchReposSaga,
-} from '../fetchRepos';
+  fetchUsersActionTypes,
+  fetchUsersActions,
+  fetchUsersSaga,
+} from '../fetchUsers';
 
 jest.mock('../../requests');
 
-describe('fetchRepos action creators', () => {
-  describe('fetchReposUpdate', () => {
+describe('fetchUsers action creators', () => {
+  describe('fetchUsersUpdate', () => {
     it('should return UPDATE action type', () => {
       const data = {};
       const expectedAction = {
-        type: fetchReposActionTypes.UPDATE,
+        type: fetchUsersActionTypes.UPDATE,
         data,
       };
-      expect(fetchReposActions.update(data)).toEqual(expectedAction);
+      expect(fetchUsersActions.update(data)).toEqual(expectedAction);
     });
   });
 
-  describe('fetchReposTrigger', () => {
+  describe('fetchUsersTrigger', () => {
     it('should return TRIGGER action type', () => {
       const queryParams = {};
       const expectedAction = {
-        type: fetchReposActionTypes.TRIGGER,
+        type: fetchUsersActionTypes.TRIGGER,
         queryParams,
       };
-      expect(fetchReposActions.trigger(queryParams)).toEqual(expectedAction);
+      expect(fetchUsersActions.trigger(queryParams)).toEqual(expectedAction);
     });
   });
 });
 
-describe('fetchReposSaga', () => {
+describe('fetchUsersSaga', () => {
   let dispatched;
   const queryParams = { param: 'param' };
 
@@ -42,38 +42,38 @@ describe('fetchReposSaga', () => {
 
   it('should dispatch successful request actions', async () => {
     const response = { data: { items: {} } };
-    fetchRepos.mockResolvedValueOnce(response);
+    fetchUsers.mockResolvedValueOnce(response);
 
     await runSaga({
       dispatch: action => dispatched.push(action),
       getState: () => { },
-    }, fetchReposSaga, { queryParams }).done;
+    }, fetchUsersSaga, { queryParams }).done;
 
     const expectedActions = [
-      fetchReposActions.loading(),
-      fetchReposActions.update(response.data.items),
-      fetchReposActions.succeeded(),
-      fetchReposActions.fulfilled(),
+      fetchUsersActions.loading(),
+      fetchUsersActions.update(response.data.items),
+      fetchUsersActions.succeeded(),
+      fetchUsersActions.fulfilled(),
     ];
-    expect(fetchRepos).toBeCalledWith(queryParams);
+    expect(fetchUsers).toBeCalledWith(queryParams);
     expect(dispatched).toEqual(expectedActions);
   });
 
   it('should dispatch successful request actions', async () => {
     const error = new Error('test error');
-    fetchRepos.mockRejectedValueOnce(error);
+    fetchUsers.mockRejectedValueOnce(error);
 
     await runSaga({
       dispatch: action => dispatched.push(action),
       getState: () => { },
-    }, fetchReposSaga, { queryParams }).done;
+    }, fetchUsersSaga, { queryParams }).done;
 
     const expectedActions = [
-      fetchReposActions.loading(),
-      fetchReposActions.failed(error),
-      fetchReposActions.fulfilled(),
+      fetchUsersActions.loading(),
+      fetchUsersActions.failed(error),
+      fetchUsersActions.fulfilled(),
     ];
-    expect(fetchRepos).toBeCalledWith(queryParams);
+    expect(fetchUsers).toBeCalledWith(queryParams);
     expect(dispatched).toEqual(expectedActions);
   });
 });

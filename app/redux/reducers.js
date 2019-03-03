@@ -1,7 +1,7 @@
-import reposReducer from './repos/reducer';
+import usersReducer from './users/reducer';
 
 const reducers = {
-  repos: reposReducer,
+  users: usersReducer,
 };
 
 export default reducers;
