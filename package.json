@@ -6,7 +6,9 @@
     "react",
     "redux",
     "styled-components",
-    "redux-saga"
+    "redux-saga",
+    "basic-styled-uikit",
+    "tailwindcss"
   ],
   "homepage": "https://github.com/thegrinder/rr-starter",
   "repository": {
