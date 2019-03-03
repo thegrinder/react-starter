@@ -15,13 +15,6 @@ export const configureStore = () => {
     applyMiddleware(sagaMiddleware),
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
   ));
-
-  if (module.hot) {
-    module.hot.accept('../redux/reducers', () => {
-      store.replaceReducer(combineReducers(reducers));
-    });
-  }
-
   return store;
 };
 

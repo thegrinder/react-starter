@@ -77,7 +77,6 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
-    "react-hot-loader": "^4.7.1",
     "react-intl": "^2.8.0",
     "react-modal": "^3.8.1",
     "react-redux": "^6.0.1",

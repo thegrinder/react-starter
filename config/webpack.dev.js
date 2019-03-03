@@ -9,17 +9,11 @@ const htmlPlugin = new HtmlWebpackPlugin({
   filename: 'index.html',
   inject: 'body',
 });
-const hmrePlugin = new webpack.HotModuleReplacementPlugin();
 const namedModulesPlugin = new webpack.NamedModulesPlugin();
 
 const devConfig = {
   mode: 'development',
-  entry: [
-    'react-hot-loader/patch',
-    'webpack-dev-server/client?http://localhost:8080',
-    'webpack/hot/only-dev-server',
-    PATHS.app,
-  ],
+  entry: PATHS.app,
   output: {
     path: PATHS.build,
     filename: 'index.js',
@@ -29,7 +23,6 @@ const devConfig = {
   devtool: 'cheap-module-source-map',
   devServer: {
     contentBase: PATHS.build,
-    hot: true,
     publicPath: '/',
   },
   resolve: {
@@ -60,7 +53,7 @@ const devConfig = {
       },
     ],
   },
-  plugins: [htmlPlugin, namedModulesPlugin, hmrePlugin],
+  plugins: [htmlPlugin, namedModulesPlugin],
 };
 
 module.exports = devConfig;
