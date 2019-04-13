@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
-const tailwindcss = require('tailwindcss');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const postCssPlugins = require('./postCssPlugins');
 const PATHS = require('./paths');
 
 const htmlPlugin = new HtmlWebpackPlugin({
@@ -46,7 +46,7 @@ const devConfig = {
             loader: 'postcss-loader',
             options: {
               ident: 'postcss',
-              plugins: () => [tailwindcss('./app/theme/tailwind.js')],
+              plugins: postCssPlugins,
             },
           },
         ],

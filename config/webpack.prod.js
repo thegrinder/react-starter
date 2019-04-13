@@ -5,7 +5,7 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
-const tailwindcss = require('tailwindcss');
+const postCssPlugins = require('./postCssPlugins');
 const PATHS = require('./paths');
 
 const htmlPlugin = new HtmlWebpackPlugin({
@@ -72,7 +72,7 @@ const prodConfig = {
             loader: 'postcss-loader',
             options: {
               ident: 'postcss',
-              plugins: () => [tailwindcss('./app/theme/tailwind.js')],
+              plugins: postCssPlugins,
             },
           },
         ],
