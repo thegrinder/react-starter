@@ -15,6 +15,7 @@
     }
   },
   "rules": {
+    "import/no-useless-path-segments": "off",
     "no-underscore-dangle": "off",
     "consistent-return": "off",
     "react/jsx-uses-react": "error",

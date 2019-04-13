@@ -41,7 +41,8 @@ describe('fetchUsersSaga', () => {
   });
 
   it('should dispatch successful request actions', async () => {
-    const response = { data: {} };
+    const id = 'id';
+    const response = { data: [{ id }] };
     fetchUsers.mockResolvedValueOnce(response);
 
     await runSaga({
@@ -49,9 +50,10 @@ describe('fetchUsersSaga', () => {
       getState: () => { },
     }, fetchUsersSaga, { queryParams }).done;
 
+    const normalizedResponse = { [id]: { id } };
     const expectedActions = [
       fetchUsersActions.loading(),
-      fetchUsersActions.update(response.data),
+      fetchUsersActions.update(normalizedResponse),
       fetchUsersActions.succeeded(),
       fetchUsersActions.fulfilled(),
     ];

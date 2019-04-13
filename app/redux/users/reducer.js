@@ -15,7 +15,10 @@ const usersReducer = (state = initialUsersState, action) => {
     case fetchUsersActionTypes.UPDATE:
       return {
         ...state,
-        data: action.data,
+        data: {
+          ...state.data,
+          ...action.data,
+        },
       };
     case fetchUserActionTypes.UPDATE:
       return {

@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Button } from 'basic-styled-uikit';
 import { fetchUsersActions, getUsers } from 'app/redux/users';
 
 const propTypes = {
@@ -10,9 +9,16 @@ const propTypes = {
 };
 
 const Users = ({ fetchUsers, users }) => {
-  console.log(fetchUsers, users);
+  useEffect(() => {
+    fetchUsers();
+  }, []);
+
   return (
-    <Button>Users</Button>
+    <ul>
+      {Object.values(users).map(({ id, name }) => (
+        <li key={id}>{name}</li>
+      ))}
+    </ul>
   );
 };
 

@@ -17,3 +17,8 @@ export const omitBy = (obj, properties) => (
       {},
     )
 );
+
+export const normalize = (arr, id = 'id') => arr.reduce((acc, item) => ({
+  ...acc,
+  [item[id]]: item,
+}), {});

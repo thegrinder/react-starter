@@ -3,6 +3,7 @@ import {
   isEmptyObj,
   omitBy,
   union,
+  normalize,
 } from '../utils';
 
 describe('utils', () => {
@@ -40,6 +41,26 @@ describe('utils', () => {
     it('should return merged array without duplicates', () => {
       expect(union([1, 2], [2, 3])).toEqual([1, 2, 3]);
       expect(union([1, 2], [])).toEqual([1, 2]);
+    });
+  });
+
+  describe('normalize', () => {
+    it('should returned normalized data by id', () => {
+      const data = [{ id: 'one' }, { id: 'two' }];
+      const normalizedData = {
+        one: { id: 'one' },
+        two: { id: 'two' },
+      };
+      expect(normalize(data)).toEqual(normalizedData);
+    });
+
+    it('should returned normalized data by a custom property', () => {
+      const data = [{ customId: 'one' }, { customId: 'two' }];
+      const normalizedData = {
+        one: { customId: 'one' },
+        two: { customId: 'two' },
+      };
+      expect(normalize(data, 'customId')).toEqual(normalizedData);
     });
   });
 });
