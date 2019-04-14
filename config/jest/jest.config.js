@@ -5,9 +5,9 @@ const PATHS = require('../paths');
 module.exports = {
   rootDir: PATHS.app,
   transform: {
-    '^.+\\.js$': path.join(PATHS.jestConfig, 'transform'),
+    '^.+\\.js$': path.join(__dirname, 'transform'),
   },
   setupFilesAfterEnv: [
-    path.join(PATHS.jestConfig, 'setupTests'),
+    path.join(__dirname, 'setupTests'),
   ],
 };
