@@ -6,7 +6,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
-const PATHS = require('./paths');
+const PATHS = require('../paths');
 
 const htmlPlugin = new HtmlWebpackPlugin({
   template: path.join(PATHS.app, 'index.html'),

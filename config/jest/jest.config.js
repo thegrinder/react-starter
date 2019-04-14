@@ -1,7 +1,9 @@
 const path = require('path');
 
+const PATHS = require('../paths');
+
 module.exports = {
-  rootDir: path.join(__dirname, '..', '..', 'app'),
+  rootDir: PATHS.app,
   transform: {
     '^.+\\.js$': path.join(__dirname, 'transform'),
   },
