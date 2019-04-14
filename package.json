@@ -20,8 +20,8 @@
     "commit": "git-cz",
     "start": "webpack-dev-server --config config/webpack/webpack.dev.js",
     "production": "webpack --config config/webpack/webpack.prod.js",
-    "test": "jest --config config/jest/index.js",
-    "lint": "eslint './{app,config}/**/*.js' --fix --config config/eslint/index.js"
+    "test": "jest --config config/jest/jest.config.js",
+    "lint": "eslint './{app,config}/**/*.js' --fix --config config/eslint/eslint.config.js"
   },
   "config": {
     "commitizen": {
