@@ -1,11 +1,12 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 const postCssPlugins = require('./postCssPlugins');
-const PATHS = require('./paths');
+const PATHS = require('../paths');
 
 const htmlPlugin = new HtmlWebpackPlugin({
-  template: path.join(__dirname, '/../app/index.html'),
+  template: path.join(PATHS.app, 'index.html'),
   filename: 'index.html',
   inject: 'body',
 });
@@ -29,8 +30,13 @@ const devConfig = {
     rules: [
       {
         test: /\.(js)$/,
-        use: 'babel-loader',
         exclude: [/node_modules/],
+        use: {
+          loader: 'babel-loader',
+          options: {
+            root: PATHS.config,
+          },
+        },
       },
       {
         test: /\.css$/,

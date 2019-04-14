@@ -18,9 +18,10 @@
   "main": "./dist/index.js",
   "scripts": {
     "commit": "git-cz",
-    "start": "webpack-dev-server --config config/webpack.dev.js",
-    "production": "webpack --config config/webpack.prod.js",
-    "test": "jest"
+    "start": "webpack-dev-server --config config/webpack/webpack.dev.js",
+    "production": "webpack --config config/webpack/webpack.prod.js",
+    "test": "jest --config config/jest/index.js",
+    "lint": "eslint './{app,config}/**/*.js' --fix --config config/eslint/index.js"
   },
   "config": {
     "commitizen": {
@@ -34,13 +35,8 @@
   },
   "lint-staged": {
     "*.js": [
-      "eslint --fix",
+      "npm run lint",
       "git add"
-    ]
-  },
-  "jest": {
-    "setupFilesAfterEnv": [
-      "<rootDir>/setupTests.js"
     ]
   },
   "author": "Pawel Szczepkowski",
@@ -55,7 +51,6 @@
     "@babel/preset-env": "^7.4.3",
     "@babel/preset-react": "^7.0.0",
     "babel-eslint": "^10.0.1",
-    "babel-jest": "^24.7.1",
     "babel-loader": "^8.0.5",
     "commitizen": "^3.0.7",
     "css-loader": "^2.1.1",
@@ -77,6 +72,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "babel-jest": "^24.7.1",
     "basic-styled-uikit": "^1.1.2",
     "compression-webpack-plugin": "^2.0.0",
     "jest-dom": "^3.1.3",

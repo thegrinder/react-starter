@@ -1,15 +1,16 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+
 const postCssPlugins = require('./postCssPlugins');
-const PATHS = require('./paths');
+const PATHS = require('../paths');
 
 const htmlPlugin = new HtmlWebpackPlugin({
-  template: path.join(__dirname, '/../app/index.html'),
+  template: path.join(PATHS.app, 'index.html'),
   filename: 'index.html',
   inject: 'body',
 });
@@ -53,8 +54,13 @@ const prodConfig = {
     rules: [
       {
         test: /\.(js)$/,
-        use: 'babel-loader',
         exclude: [/node_modules/],
+        use: {
+          loader: 'babel-loader',
+          options: {
+            root: PATHS.config,
+          },
+        },
       },
       {
         test: /\.css$/,
