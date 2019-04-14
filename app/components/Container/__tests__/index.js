@@ -3,7 +3,7 @@ import { ThemeProvider } from 'styled-components';
 import { render, cleanup } from 'react-testing-library';
 import 'jest-dom/extend-expect';
 
-import theme from 'app/theme/components';
+import theme from '../../../theme/components';
 import Container from '..';
 
 

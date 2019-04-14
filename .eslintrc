@@ -15,7 +15,6 @@
     }
   },
   "rules": {
-    "import/no-useless-path-segments": "off",
     "no-underscore-dangle": "off",
     "consistent-return": "off",
     "react/jsx-uses-react": "error",
@@ -33,12 +32,5 @@
       }
     ],
     "jsx-a11y/label-has-for": "off"
-  },
-  "settings": {
-    "import/resolver": {
-      "webpack": {
-        "config": "./config/webpack.dev.js"
-      }
-    }
   }
 }

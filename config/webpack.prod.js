@@ -40,11 +40,6 @@ const prodConfig = {
     filename: 'index.js',
     publicPath: '/',
   },
-  resolve: {
-    alias: {
-      app: PATHS.app,
-    },
-  },
   optimization: {
     minimizer: [
       terserPlugin,

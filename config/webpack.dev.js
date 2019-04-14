@@ -25,11 +25,6 @@ const devConfig = {
     contentBase: PATHS.build,
     publicPath: '/',
   },
-  resolve: {
-    alias: {
-      app: PATHS.app,
-    },
-  },
   module: {
     rules: [
       {
