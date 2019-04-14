@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SubmitButton /> should render correctly 1`] = `
+<button
+  class="StyledButton-k0ad56-0 hzwlwW"
+  type="submit"
+>
+  <span
+    class="ChildrenWrapper-sc-30uoyc-0 cdOdhF"
+  >
+    click me
+  </span>
+</button>
+`;
