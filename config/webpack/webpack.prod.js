@@ -6,8 +6,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
-const postCssPlugins = require('./postCssPlugins');
-const PATHS = require('../paths');
+const PATHS = require('./paths');
 
 const htmlPlugin = new HtmlWebpackPlugin({
   template: path.join(PATHS.app, 'index.html'),
@@ -58,7 +57,7 @@ const prodConfig = {
         use: {
           loader: 'babel-loader',
           options: {
-            root: PATHS.config,
+            root: path.join(PATHS.config, 'babel'),
           },
         },
       },
@@ -68,12 +67,13 @@ const prodConfig = {
           {
             loader: MiniCssExtractPlugin.loader,
           },
-          'css-loader',
+          { loader: 'css-loader' },
           {
             loader: 'postcss-loader',
             options: {
-              ident: 'postcss',
-              plugins: postCssPlugins,
+              config: {
+                path: path.join(PATHS.config, 'postcss'),
+              },
             },
           },
         ],
