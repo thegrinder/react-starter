@@ -1,8 +1,6 @@
 import React from 'react';
-import { ThemeProvider } from 'styled-components';
-import { render } from 'react-testing-library';
 
-import theme from '../../../theme/components';
+import { render } from '../../../helpers/test-utils';
 import Spinner from '..';
 
 const requiredProps = {
@@ -10,9 +8,7 @@ const requiredProps = {
 };
 
 const renderComponent = (props = {}) => render(
-  <ThemeProvider theme={theme}>
-    <Spinner {...requiredProps} {...props} />
-  </ThemeProvider>,
+  <Spinner {...requiredProps} {...props} />,
 );
 
 describe('<Spinner />', () => {

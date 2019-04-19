@@ -1,15 +1,11 @@
 import React from 'react';
-import { ThemeProvider } from 'styled-components';
-import { render } from 'react-testing-library';
 
-import theme from '../../../theme/components';
+import { render } from '../../../helpers/test-utils';
 import SubmitButton from '..';
 
 
 const renderComponent = () => render(
-  <ThemeProvider theme={theme}>
-    <SubmitButton>click me</SubmitButton>
-  </ThemeProvider>,
+  <SubmitButton>click me</SubmitButton>,
 );
 
 describe('<SubmitButton />', () => {

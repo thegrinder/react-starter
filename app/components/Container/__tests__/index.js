@@ -1,17 +1,13 @@
 import React from 'react';
-import { ThemeProvider } from 'styled-components';
-import { render } from 'react-testing-library';
 
-import theme from '../../../theme/components';
+import { render } from '../../../helpers/test-utils';
 import Container from '..';
 
 
 const children = <span>children</span>;
 
 const renderComponent = (props = {}) => render(
-  <ThemeProvider theme={theme}>
-    <Container {...props}>{children}</Container>
-  </ThemeProvider>,
+  <Container {...props}>{children}</Container>,
 );
 
 describe('<Container />', () => {
