@@ -1,6 +1,6 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
-import { render, cleanup } from 'react-testing-library';
+import { render } from 'react-testing-library';
 
 import theme from '../../../theme/components';
 import Container from '..';
@@ -15,8 +15,6 @@ const renderComponent = (props = {}) => render(
 );
 
 describe('<Container />', () => {
-  afterEach(cleanup);
-
   it('should render correctly with default props and children', () => {
     const { container: { firstChild }, getByText } = renderComponent();
     const childrenElement = getByText('children');

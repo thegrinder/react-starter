@@ -1,6 +1,6 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
-import { render, cleanup } from 'react-testing-library';
+import { render } from 'react-testing-library';
 
 import theme from '../../../theme/components';
 import Spinner from '..';
@@ -16,8 +16,6 @@ const renderComponent = (props = {}) => render(
 );
 
 describe('<Spinner />', () => {
-  afterEach(cleanup);
-
   it('should render correctly with default props', () => {
     const { container: { firstChild } } = renderComponent();
     expect(firstChild).toBeDefined();
