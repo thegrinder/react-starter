@@ -22,6 +22,12 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'import/no-named-as-default': 'off',
     'react/forbid-prop-types': 'off',
+    'import/no-extraneous-dependencies': [
+      'error',
+      {
+        devDependencies: ['**/config/**/*.js'],
+      },
+    ],
     'object-curly-newline': [
       'error',
       {

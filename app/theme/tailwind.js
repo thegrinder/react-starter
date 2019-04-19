@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 const plugins = require('tailwindcss-base-plugins');
 
 module.exports = {
