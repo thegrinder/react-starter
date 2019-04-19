@@ -4,7 +4,7 @@ import { IntlProvider } from 'react-intl';
 import { ThemeProvider } from 'styled-components';
 import { render } from 'react-testing-library';
 
-import theme from '../../theme/components';
+import theme from '../theme/components';
 
 const propTypes = {
   children: PropTypes.node.isRequired,
