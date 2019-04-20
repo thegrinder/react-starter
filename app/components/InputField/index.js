@@ -17,7 +17,7 @@ const defaultProps = {
 };
 
 
-export const InputField = ({
+const InputField = ({
   label,
   onChange,
   onBlur,
