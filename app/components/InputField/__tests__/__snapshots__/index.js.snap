@@ -4,13 +4,7 @@ exports[`<InputField /> should render correctly 1`] = `
 <div
   class="mb-2"
 >
-  <label
-    class="StyledText-r7l7li-0 fmkACB"
-    color="default"
-    for="id"
-  >
-    label
-  </label>
+  
   <input
     class="StyledInput-ok3pz6-0 buStls"
     id="id"

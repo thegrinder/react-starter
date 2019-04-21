@@ -1,6 +1,6 @@
 import React, { lazy, Suspense } from 'react';
 import { ResetCss } from 'basic-styled-uikit';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 import { GlobalStyles, Container } from '../../components';
 
@@ -23,6 +23,7 @@ const Main = () => (
     <Switch>
       <Route path="/users/:uid" component={LazyUser} />
       <Route path="/users" component={LazyUsers} />
+      <Redirect to="/users" component={LazyUsers} />
     </Switch>
   </Container>
 );

@@ -1,33 +1,67 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { fetchUsersActions, getUsers } from '../../redux/users';
+import { Link as RouterLink } from 'react-router-dom';
+import { useForm } from 'react-handy-hooks';
+import { Link, Heading } from 'basic-styled-uikit';
+
+import { Card, InputField, SubmitButton } from '../../components';
+import { fetchUsersActions, getUsers, getFetchUsersRequestState } from '../../redux/users';
 
 const propTypes = {
   fetchUsers: PropTypes.func.isRequired,
   users: PropTypes.object.isRequired,
+  loading: PropTypes.bool.isRequired,
 };
 
-const Users = ({ fetchUsers, users }) => {
-  useEffect(() => {
-    fetchUsers();
-  }, []);
+const Users = ({ fetchUsers, users, loading }) => {
+  const initialValues = {
+    name: '',
+  };
+
+  const { getFieldProps, handleSubmit } = useForm({
+    initialValues,
+    onSubmit: fetchUsers,
+  });
 
   return (
-    <ul>
-      {Object.values(users).map(({ id, name }) => (
-        <li key={id}>{name}</li>
-      ))}
-    </ul>
+    <Card className="pa-8 mv-6">
+      <form onSubmit={handleSubmit} className="flex flex-row items-start -mh-4">
+        <div className="col ph-4">
+          <InputField placeholder="search" id="search" {...getFieldProps('name')} />
+        </div>
+        <div className="col-auto ph-4">
+          <SubmitButton submitting={loading}>
+            Search
+          </SubmitButton>
+        </div>
+      </form>
+      <div>
+        <Heading as="h5" className="mb-3">Results:</Heading>
+        <ul>
+          {Object.values(users).map(({ id, name }) => (
+            <li key={id}>
+              <Link as={RouterLink} to={`/users/${id}`}>
+                {name}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </Card>
   );
 };
 
 Users.propTypes = propTypes;
 
 
-const mapStateToProps = state => ({
-  users: getUsers(state),
-});
+const mapStateToProps = (state) => {
+  const { loading } = getFetchUsersRequestState(state);
+  return {
+    loading,
+    users: getUsers(state),
+  };
+};
 
 const mapDispatchToProps = {
   fetchUsers: fetchUsersActions.trigger,

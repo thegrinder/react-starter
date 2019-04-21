@@ -8,7 +8,6 @@ const requiredProps = {
   onBlur: jest.fn(),
   value: '',
   touched: false,
-  label: 'label',
   id: 'id',
 };
 
@@ -24,12 +23,15 @@ describe('<InputField />', () => {
     expect(firstChild).toMatchSnapshot();
   });
 
-  it('should render error', () => {
+  it('should render error and label', () => {
     const { container: { firstChild }, getByText } = renderComponent({
       touched: true,
       error: 'error',
+      label: 'label',
     });
     const errorElement = getByText('error');
+    const labelElement = getByText('label');
     expect(firstChild).toContainElement(errorElement);
+    expect(firstChild).toContainElement(labelElement);
   });
 });

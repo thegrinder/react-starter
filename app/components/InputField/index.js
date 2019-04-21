@@ -7,13 +7,14 @@ const propTypes = {
   onBlur: PropTypes.func.isRequired,
   value: PropTypes.string.isRequired,
   touched: PropTypes.bool.isRequired,
-  label: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
+  label: PropTypes.string,
   error: PropTypes.string,
 };
 
 const defaultProps = {
   error: '',
+  label: '',
 };
 
 
@@ -27,7 +28,7 @@ const InputField = ({
   id,
 }) => (
   <div className="mb-2">
-    <Text as="label" htmlFor={id}>{label}</Text>
+    {label && <Text as="label" htmlFor={id}>{label}</Text>}
     <Input
       id={id}
       onChange={onChange}
