@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { Heading } from 'basic-styled-uikit';
+import { Text, Heading } from 'basic-styled-uikit';
 
 import { isEmptyObj } from '../../helpers/utils';
 import { Card, Spinner } from '../../components';
@@ -31,12 +31,26 @@ const User = ({ fetchUser, user, loading, match }) => {
       </div>
     );
   }
-
+  const { name, username, email, phone } = user;
   return (
     <Card className="pa-6">
-      <Heading as="h1" sizing="h3">
-        {user.name}
+      <Heading as="h1" sizing="h3" marginBottom>
+        {name}
       </Heading>
+      <ul className="max-w-sm">
+        <li className="flex justify-between">
+          <Text color="dark">username:</Text>
+          <Text>{username}</Text>
+        </li>
+        <li className="flex justify-between">
+          <Text color="dark">email:</Text>
+          <Text>{email}</Text>
+        </li>
+        <li className="flex justify-between">
+          <Text color="dark">phone:</Text>
+          <Text>{phone}</Text>
+        </li>
+      </ul>
     </Card>
   );
 };

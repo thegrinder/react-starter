@@ -37,7 +37,9 @@ const Users = ({ fetchUsers, users, loading }) => {
         </div>
       </form>
       <div>
-        <Heading as="h5" className="mb-3">Results:</Heading>
+        <Heading as="h5" marginBottom>
+          Results:
+        </Heading>
         <ul>
           {Object.values(users).map(({ id, name }) => (
             <li key={id}>
