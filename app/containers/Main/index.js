@@ -20,11 +20,13 @@ const Main = () => (
   <Container>
     <ResetCss />
     <GlobalStyles />
-    <Switch>
-      <Route path="/users/:uid" component={LazyUser} />
-      <Route path="/users" component={LazyUsers} />
-      <Redirect to="/users" component={LazyUsers} />
-    </Switch>
+    <div className="pv-6">
+      <Switch>
+        <Route path="/users/:uid" component={LazyUser} />
+        <Route path="/users" component={LazyUsers} />
+        <Redirect to="/users" component={LazyUsers} />
+      </Switch>
+    </div>
   </Container>
 );
 export default Main;

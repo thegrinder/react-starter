@@ -25,7 +25,7 @@ const Users = ({ fetchUsers, users, loading }) => {
   });
 
   return (
-    <Card className="pa-8 mv-6">
+    <Card className="pa-8">
       <form onSubmit={handleSubmit} className="flex flex-row items-start -mh-4">
         <div className="col ph-4">
           <InputField placeholder="search" id="search" {...getFieldProps('name')} />
