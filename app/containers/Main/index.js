@@ -2,10 +2,10 @@ import React, { lazy, Suspense } from 'react';
 import { ResetCss } from 'basic-styled-uikit';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
-import { GlobalStyles, Container } from '../../components';
+import { GlobalStyles, InfiniteProgressBar } from '../../components';
 
 const createLazyComponent = Component => () => (
-  <Suspense fallback={<span>loading</span>}>
+  <Suspense fallback={<InfiniteProgressBar />}>
     <Component />
   </Suspense>
 );
@@ -17,16 +17,14 @@ const LazyUsers = createLazyComponent(Users);
 const LazyUser = createLazyComponent(User);
 
 const Main = () => (
-  <Container>
+  <>
     <ResetCss />
     <GlobalStyles />
-    <div className="pv-6">
-      <Switch>
-        <Route path="/users/:uid" component={LazyUser} />
-        <Route path="/users" component={LazyUsers} />
-        <Redirect to="/users" component={LazyUsers} />
-      </Switch>
-    </div>
-  </Container>
+    <Switch>
+      <Route path="/users/:uid" component={LazyUser} />
+      <Route path="/users" component={LazyUsers} />
+      <Redirect to="/users" component={LazyUsers} />
+    </Switch>
+  </>
 );
 export default Main;

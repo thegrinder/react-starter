@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom';
 import { Text, Heading } from 'basic-styled-uikit';
 
 import { isEmptyObj } from '../../helpers/utils';
-import { Card, Spinner } from '../../components';
+import { Card, Spinner, Container } from '../../components';
 import { fetchUserActions, getUser, getFetchUserRequestState } from '../../redux/users';
 
 const propTypes = {
@@ -33,25 +33,28 @@ const User = ({ fetchUser, user, loading, match }) => {
   }
   const { name, username, email, phone } = user;
   return (
-    <Card className="pa-6">
-      <Heading as="h1" sizing="h3" marginBottom>
-        {name}
-      </Heading>
-      <ul className="max-w-sm">
-        <li className="flex justify-between">
-          <Text color="dark">username:</Text>
-          <Text>{username}</Text>
-        </li>
-        <li className="flex justify-between">
-          <Text color="dark">email:</Text>
-          <Text>{email}</Text>
-        </li>
-        <li className="flex justify-between">
-          <Text color="dark">phone:</Text>
-          <Text>{phone}</Text>
-        </li>
-      </ul>
-    </Card>
+    <Container className="pv-6">
+
+      <Card className="pa-6">
+        <Heading as="h1" sizing="h3" marginBottom>
+          {name}
+        </Heading>
+        <ul className="max-w-sm">
+          <li className="flex justify-between">
+            <Text color="dark">username:</Text>
+            <Text>{username}</Text>
+          </li>
+          <li className="flex justify-between">
+            <Text color="dark">email:</Text>
+            <Text>{email}</Text>
+          </li>
+          <li className="flex justify-between">
+            <Text color="dark">phone:</Text>
+            <Text>{phone}</Text>
+          </li>
+        </ul>
+      </Card>
+    </Container>
   );
 };
 
