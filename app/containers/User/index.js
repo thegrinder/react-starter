@@ -19,7 +19,7 @@ const defaultProps = {
   user: {},
 };
 
-const User = ({ fetchUser, user, loading, match }) => {
+export const User = ({ fetchUser, user, loading, match }) => {
   useEffect(() => {
     fetchUser(match.params.uid);
   }, []);

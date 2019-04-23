@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<User /> should render correctly 1`] = `
+<div
+  class="pv-6 sc-bdVaJa hGfkPm"
+>
+  <div
+    class="pa-6 sc-htpNat fEfKmN"
+  >
+    <h1
+      class="StyledHeading-fbinjh-0 dleDsV"
+      color="default"
+    >
+      name
+    </h1>
+    <ul
+      class="max-w-sm"
+    >
+      <li
+        class="flex justify-between"
+      >
+        <span
+          class="StyledText-r7l7li-0 jZriGY"
+          color="dark"
+        >
+          username:
+        </span>
+        <span
+          class="StyledText-r7l7li-0 fmkACB"
+          color="default"
+        >
+          username
+        </span>
+      </li>
+      <li
+        class="flex justify-between"
+      >
+        <span
+          class="StyledText-r7l7li-0 jZriGY"
+          color="dark"
+        >
+          email:
+        </span>
+        <span
+          class="StyledText-r7l7li-0 fmkACB"
+          color="default"
+        >
+          email@email.com
+        </span>
+      </li>
+      <li
+        class="flex justify-between"
+      >
+        <span
+          class="StyledText-r7l7li-0 jZriGY"
+          color="dark"
+        >
+          phone:
+        </span>
+        <span
+          class="StyledText-r7l7li-0 fmkACB"
+          color="default"
+        >
+          132456776
+        </span>
+      </li>
+    </ul>
+  </div>
+</div>
+`;
