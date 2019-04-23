@@ -1,6 +1,9 @@
 import styled, { keyframes } from 'styled-components';
 import PropTypes from 'prop-types';
+import { injectIntl } from 'react-intl';
 import { getColor, rem } from 'basic-styled-uikit';
+
+import messages from './messages';
 
 const propTypes = {
   sizing: PropTypes.number,
@@ -16,7 +19,9 @@ const loading = keyframes`
   100% { transform: rotate(360deg); }
 `;
 
-const Spinner = styled.span`
+const Spinner = styled.span.attrs(({ intl }) => ({
+  'aria-label': intl.formatMessage(messages.spinner),
+}))`
   width: ${props => rem(props.sizing)(props)};
   height: ${props => rem(props.sizing)(props)};
   border-radius: 100%;
@@ -30,4 +35,4 @@ const Spinner = styled.span`
 Spinner.propTypes = propTypes;
 Spinner.defaultProps = defaultProps;
 
-export default Spinner;
+export default injectIntl(Spinner);

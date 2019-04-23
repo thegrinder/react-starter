@@ -2,6 +2,7 @@
 
 exports[`<Spinner /> should render correctly with default props 1`] = `
 <span
+  aria-label="loading..."
   class="sc-bdVaJa ioELWI"
   color="black"
 />
