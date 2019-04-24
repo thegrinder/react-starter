@@ -26,6 +26,7 @@ const InputField = ({
   error,
   touched,
   id,
+  ...rest
 }) => (
   <div className="mb-2">
     {label && <Text as="label" htmlFor={id}>{label}</Text>}
@@ -35,6 +36,7 @@ const InputField = ({
       onBlur={onBlur}
       invalid={!!error && touched}
       value={value}
+      {...rest}
     />
     <div className="h-4">
       {touched && !!error && (

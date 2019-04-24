@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { IntlProvider } from 'react-intl';
 import { ThemeProvider } from 'styled-components';
-import { render } from 'react-testing-library';
+import * as RTL from 'react-testing-library';
 
 import theme from '../theme/components';
 
@@ -21,7 +21,6 @@ const Providers = ({ children }) => (
 
 Providers.propTypes = propTypes;
 
-const customRender = (ui, options) => render(ui, { wrapper: Providers, ...options });
+export const render = (ui, options) => RTL.render(ui, { wrapper: Providers, ...options });
 
-export * from 'react-testing-library';
-export { customRender as render };
+export const { fireEvent, act } = RTL;

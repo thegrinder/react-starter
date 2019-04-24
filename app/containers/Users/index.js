@@ -5,10 +5,13 @@ import { Link as RouterLink } from 'react-router-dom';
 import { useForm } from 'react-handy-hooks';
 import { Link, Heading } from 'basic-styled-uikit';
 
-import {
-  Card, InputField, SubmitButton, Container,
-} from '../../components';
 import { fetchUsersActions, getUsers, getFetchUsersRequestState } from '../../redux/users';
+import {
+  Card,
+  InputField,
+  SubmitButton,
+  Container,
+} from '../../components';
 
 const propTypes = {
   fetchUsers: PropTypes.func.isRequired,
@@ -16,7 +19,7 @@ const propTypes = {
   loading: PropTypes.bool.isRequired,
 };
 
-const Users = ({ fetchUsers, users, loading }) => {
+export const Users = ({ fetchUsers, users, loading }) => {
   const initialValues = {
     name: '',
   };
@@ -31,10 +34,10 @@ const Users = ({ fetchUsers, users, loading }) => {
       <Card className="pa-8">
         <form onSubmit={handleSubmit} className="flex flex-row items-start -mh-4">
           <div className="col ph-4">
-            <InputField placeholder="search" id="search" {...getFieldProps('name')} />
+            <InputField placeholder="Search" id="search" {...getFieldProps('name')} />
           </div>
           <div className="col-auto ph-4">
-            <SubmitButton submitting={loading}>
+            <SubmitButton submitting={loading} onClick={handleSubmit}>
             Search
             </SubmitButton>
           </div>

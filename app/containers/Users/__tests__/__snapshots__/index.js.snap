@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Users /> should render correctly 1`] = `
+<div
+  class="pv-6 sc-bdVaJa hGfkPm"
+>
+  <div
+    class="pa-8 sc-htpNat fEfKmN"
+  >
+    <form
+      class="flex flex-row items-start -mh-4"
+    >
+      <div
+        class="col ph-4"
+      >
+        <div
+          class="mb-2"
+        >
+          
+          <input
+            class="StyledInput-ok3pz6-0 buStls"
+            id="search"
+            placeholder="Search"
+            value=""
+          />
+          <div
+            class="h-4"
+          />
+        </div>
+      </div>
+      <div
+        class="col-auto ph-4"
+      >
+        <button
+          class="StyledButton-k0ad56-0 hzwlwW"
+          type="submit"
+        >
+          <span
+            class="ChildrenWrapper-sc-30uoyc-0 cdOdhF"
+          >
+            Search
+          </span>
+        </button>
+      </div>
+    </form>
+    <div>
+      <h5
+        class="StyledHeading-fbinjh-0 geivid"
+        color="default"
+      >
+        Results:
+      </h5>
+      <ul>
+        <li>
+          <a
+            class="StyledLink-sc-1s1vukk-0 cduPSp"
+            href="/users/id"
+            linktype="default"
+            sizing="m"
+          >
+            name
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
