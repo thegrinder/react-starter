@@ -21,7 +21,7 @@ const Main = () => (
     <ResetCss />
     <GlobalStyles />
     <Switch>
-      <Route path="/users/:uid" component={LazyUser} />
+      <Route path="/users/:id" component={LazyUser} />
       <Route path="/users" component={LazyUsers} />
       <Redirect to="/users" component={LazyUsers} />
     </Switch>

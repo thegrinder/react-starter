@@ -25,7 +25,7 @@ const usersReducer = (state = initialUsersState, action) => {
         ...state,
         data: {
           ...state.data,
-          [action.data.uid]: action.data,
+          [action.data.id]: action.data,
         },
       };
     default:

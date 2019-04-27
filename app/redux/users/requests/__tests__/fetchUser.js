@@ -22,19 +22,19 @@ describe('fetchUser action creators', () => {
 
   describe('fetchUserTrigger', () => {
     it('should return TRIGGER action type', () => {
-      const uid = '1234';
+      const id = '1234';
       const expectedAction = {
         type: fetchUserActionTypes.TRIGGER,
-        uid,
+        id,
       };
-      expect(fetchUserActions.trigger(uid)).toEqual(expectedAction);
+      expect(fetchUserActions.trigger(id)).toEqual(expectedAction);
     });
   });
 });
 
 describe('fetchUserSaga', () => {
   let dispatched;
-  const uid = '1234';
+  const id = '1234';
 
   beforeEach(async () => {
     dispatched = [];
@@ -47,7 +47,7 @@ describe('fetchUserSaga', () => {
     await runSaga({
       dispatch: action => dispatched.push(action),
       getState: () => { },
-    }, fetchUserSaga, { uid }).done;
+    }, fetchUserSaga, { id }).done;
 
     const expectedActions = [
       fetchUserActions.loading(),
@@ -55,7 +55,7 @@ describe('fetchUserSaga', () => {
       fetchUserActions.succeeded(),
       fetchUserActions.fulfilled(),
     ];
-    expect(fetchUser).toBeCalledWith(uid);
+    expect(fetchUser).toBeCalledWith(id);
     expect(dispatched).toEqual(expectedActions);
   });
 
@@ -66,14 +66,14 @@ describe('fetchUserSaga', () => {
     await runSaga({
       dispatch: action => dispatched.push(action),
       getState: () => { },
-    }, fetchUserSaga, { uid }).done;
+    }, fetchUserSaga, { id }).done;
 
     const expectedActions = [
       fetchUserActions.loading(),
       fetchUserActions.failed(error),
       fetchUserActions.fulfilled(),
     ];
-    expect(fetchUser).toBeCalledWith(uid);
+    expect(fetchUser).toBeCalledWith(id);
     expect(dispatched).toEqual(expectedActions);
   });
 });

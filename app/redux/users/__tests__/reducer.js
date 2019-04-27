@@ -19,12 +19,12 @@ describe('fetchUsers reducer', () => {
   });
 
   it('handles fetchUser UPDATE action properly', () => {
-    const uid = '123';
-    const data = { uid };
+    const id = '123';
+    const data = { id };
     const expectedState = {
       ...initialUsersState,
       data: {
-        [uid]: data,
+        [id]: data,
       },
     };
     expect(usersReducer(initialUsersState, fetchUserActions.update(data)))

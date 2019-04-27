@@ -1,11 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import { Link as RouterLink } from 'react-router-dom';
 import { useForm } from 'react-handy-hooks';
 import { Link, Heading } from 'basic-styled-uikit';
 
-import { fetchUsersActions, getUsers, getFetchUsersRequestState } from '../../redux/users';
+import { useFetchUsersActions, getUsers, getFetchUsersRequestState } from '../../redux/users';
 import {
   Card,
   InputField,
@@ -13,13 +11,11 @@ import {
   Container,
 } from '../../components';
 
-const propTypes = {
-  fetchUsers: PropTypes.func.isRequired,
-  users: PropTypes.object.isRequired,
-  loading: PropTypes.bool.isRequired,
-};
+export const Users = () => {
+  const users = getUsers();
+  const { loading } = getFetchUsersRequestState();
+  const { fetchUsers } = useFetchUsersActions();
 
-export const Users = ({ fetchUsers, users, loading }) => {
   const initialValues = {
     name: '',
   };
@@ -44,7 +40,7 @@ export const Users = ({ fetchUsers, users, loading }) => {
         </form>
         <div>
           <Heading as="h5" marginBottom>
-          Results:
+            Results:
           </Heading>
           <ul>
             {Object.values(users).map(({ id, name }) => (
@@ -61,19 +57,4 @@ export const Users = ({ fetchUsers, users, loading }) => {
   );
 };
 
-Users.propTypes = propTypes;
-
-
-const mapStateToProps = (state) => {
-  const { loading } = getFetchUsersRequestState(state);
-  return {
-    loading,
-    users: getUsers(state),
-  };
-};
-
-const mapDispatchToProps = {
-  fetchUsers: fetchUsersActions.trigger,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Users);
+export default Users;

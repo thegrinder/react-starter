@@ -1,3 +1,5 @@
+import { useActions } from 'react-redux';
+
 import { call, put } from 'redux-saga/effects';
 import { createRequest } from '../../helpers';
 import { fetchUser } from '../requests';
@@ -12,8 +14,8 @@ const fetchUserUpdate = data => ({
   type: actionTypes.UPDATE,
 });
 
-const fetchUserTrigger = uid => ({
-  uid,
+const fetchUserTrigger = id => ({
+  id,
   type: actionTypes.TRIGGER,
 });
 
@@ -26,7 +28,7 @@ export const fetchUserActions = {
 export function* fetchUserSaga(action) {
   yield put(fetchUserActions.loading());
   try {
-    const { data } = yield call(fetchUser, action.uid);
+    const { data } = yield call(fetchUser, action.id);
     yield put(fetchUserActions.update(data));
     yield put(fetchUserActions.succeeded());
   } catch (error) {
@@ -35,3 +37,8 @@ export function* fetchUserSaga(action) {
     yield put(fetchUserActions.fulfilled());
   }
 }
+
+export const useFetchUserActions = () => useActions({
+  fetchUser: fetchUserActions.trigger,
+  resetFetchUserState: fetchUserActions.reset,
+});

@@ -1,16 +1,16 @@
 import {
-  getUsersState,
-  getUsers,
-  getUser,
-  getFetchUsersRequestState,
+  usersStateSelector,
+  usersSelector,
+  userSelector,
+  fetchUsersRequestSelector,
   getFetchUserRequestState,
 } from '../selectors';
 import { initialRequestState } from '../../helpers';
 
-const uid = '1';
+const id = '1';
 const data = {
-  [uid]: {
-    uid,
+  [id]: {
+    id,
     name: 'user',
   },
 };
@@ -36,27 +36,27 @@ const state = {
 };
 
 describe('users selectors', () => {
-  describe('getUsersState', () => {
+  describe('usersStateSelector', () => {
     it('should return users state', () => {
-      expect(getUsersState(state)).toEqual(state.users);
+      expect(usersStateSelector(state)).toEqual(state.users);
     });
   });
 
-  describe('getUsers', () => {
+  describe('usersSelector', () => {
     it('should return fetched users', () => {
-      expect(getUsers(state)).toEqual(data);
+      expect(usersSelector(state)).toEqual(data);
     });
   });
 
-  describe('getUser', () => {
+  describe('userSelector', () => {
     it('should return the correct user', () => {
-      expect(getUser(state, uid)).toEqual(data[uid]);
+      expect(userSelector(state, id)).toEqual(data[id]);
     });
   });
 
-  describe('getFetchUsersRequestState', () => {
+  describe('fetchUsersRequestSelector', () => {
     it('should return fetchUsers request state', () => {
-      expect(getFetchUsersRequestState(state)).toEqual(fetchUsersState);
+      expect(fetchUsersRequestSelector(state)).toEqual(fetchUsersState);
     });
   });
 

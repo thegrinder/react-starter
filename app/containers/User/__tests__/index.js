@@ -3,14 +3,14 @@ import React from 'react';
 import { render } from '../../../helpers/test-utils';
 import { User } from '..';
 
-const uid = 'uid';
+const id = 'id';
 const fetchUser = jest.fn();
 const requiredProps = {
   fetchUser,
   loading: false,
   match: {
     params: {
-      uid,
+      id,
     },
   },
   user: {
@@ -46,6 +46,6 @@ describe('<User />', () => {
 
   it('should fetch user with a specific id on mount', () => {
     renderComponent();
-    expect(fetchUser).toHaveBeenCalledWith(uid);
+    expect(fetchUser).toHaveBeenCalledWith(id);
   });
 });

@@ -1,37 +1,35 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { Text, Heading } from 'basic-styled-uikit';
 
-import { isEmptyObj } from '../../helpers/utils';
 import { Card, Spinner, Container } from '../../components';
-import { fetchUserActions, getUser, getFetchUserRequestState } from '../../redux/users';
+import { useFetchUserActions, getUser, getFetchUserRequestState } from '../../redux/users';
 
 const propTypes = {
-  fetchUser: PropTypes.func.isRequired,
-  loading: PropTypes.bool.isRequired,
   match: PropTypes.object.isRequired,
-  user: PropTypes.object,
 };
 
-const defaultProps = {
-  user: {},
-};
+export const User = ({ match }) => {
+  const { fetchUser } = useFetchUserActions();
 
-export const User = ({ fetchUser, user, loading, match }) => {
   useEffect(() => {
-    fetchUser(match.params.uid);
+    fetchUser(match.params.id);
   }, []);
 
-  if (loading || isEmptyObj(user)) {
+  const { loading } = getFetchUserRequestState();
+  const user = getUser(match.params.id);
+
+  if (loading || !user) {
     return (
       <div className="pa-6 tc">
         <Spinner color="#777" />
       </div>
     );
   }
+
   const { name, username, email, phone } = user;
+
   return (
     <Container className="pv-6">
 
@@ -59,18 +57,5 @@ export const User = ({ fetchUser, user, loading, match }) => {
 };
 
 User.propTypes = propTypes;
-User.defaultProps = defaultProps;
 
-const mapStateToProps = (state, { id }) => {
-  const { loading } = getFetchUserRequestState(state);
-  return {
-    loading,
-    user: getUser(state, id),
-  };
-};
-
-const mapDispatchToProps = {
-  fetchUser: fetchUserActions.trigger,
-};
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(User));
+export default withRouter(User);

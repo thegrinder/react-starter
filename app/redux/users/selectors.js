@@ -1,9 +1,23 @@
-export const getUsersState = state => state.users;
+import { useSelector } from 'react-redux';
 
-export const getUsers = state => getUsersState(state).data;
+// selectors
+export const usersStateSelector = state => state.users;
 
-export const getUser = (state, uid) => getUsersState(state).data[uid];
+export const usersSelector = state => usersStateSelector(state).data;
 
-export const getFetchUsersRequestState = state => getUsersState(state).requests.fetchUsers;
+export const userSelector = (state, id) => usersStateSelector(state).data[id];
 
-export const getFetchUserRequestState = state => getUsersState(state).requests.fetchUser;
+export const fetchUsersRequestSelector = state => usersStateSelector(state).requests.fetchUsers;
+
+export const fetchUserRequestSelector = state => usersStateSelector(state).requests.fetchUser;
+
+// hooks
+export const getUsersState = () => useSelector(usersStateSelector);
+
+export const getUsers = () => useSelector(usersSelector);
+
+export const getUser = id => useSelector(state => userSelector(state, id), [id]);
+
+export const getFetchUsersRequestState = () => useSelector(fetchUsersRequestSelector);
+
+export const getFetchUserRequestState = () => useSelector(fetchUserRequestSelector);
