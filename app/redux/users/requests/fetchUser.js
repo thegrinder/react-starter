@@ -7,12 +7,12 @@ const { actionTypes, actionCreators, reducer } = createRequest('users/requests/f
 export const fetchUserActionTypes = actionTypes;
 export const fetchUserReducer = reducer;
 
-export const fetchUserUpdate = data => ({
+const fetchUserUpdate = data => ({
   data,
   type: actionTypes.UPDATE,
 });
 
-export const fetchUserTrigger = uid => ({
+const fetchUserTrigger = uid => ({
   uid,
   type: actionTypes.TRIGGER,
 });
