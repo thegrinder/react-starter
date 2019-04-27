@@ -5,6 +5,7 @@ import { fetchUserActions } from '../requests/fetchUser';
 describe('fetchUsers reducer', () => {
   it('return initial state', () => {
     expect(usersReducer(initialUsersState, { type: 'NOOP' })).toEqual(initialUsersState);
+    expect(initialUsersState).toMatchSnapshot();
   });
 
   it('handles fetchUsers UPDATE action properly', () => {
