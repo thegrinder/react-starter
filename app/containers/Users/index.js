@@ -3,7 +3,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import { useForm } from 'react-handy-hooks';
 import { Link, Heading } from 'basic-styled-uikit';
 
-import { useFetchUsersActions, getUsers, getFetchUsersRequestState } from '../../redux/users';
+import { useFetchUsersActions, useUsersSelector, useFetchUsersRequestSelector } from '../../redux/users';
 import {
   Card,
   InputField,
@@ -12,8 +12,8 @@ import {
 } from '../../components';
 
 export const Users = () => {
-  const users = getUsers();
-  const { loading } = getFetchUsersRequestState();
+  const users = useUsersSelector();
+  const { loading } = useFetchUsersRequestSelector();
   const { fetchUsers } = useFetchUsersActions();
 
   const initialValues = {

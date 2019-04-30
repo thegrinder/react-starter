@@ -3,7 +3,7 @@ import {
   usersSelector,
   userSelector,
   fetchUsersRequestSelector,
-  getFetchUserRequestState,
+  fetchUserRequestSelector,
 } from '../selectors';
 import { initialRequestState } from '../../helpers';
 
@@ -60,9 +60,9 @@ describe('users selectors', () => {
     });
   });
 
-  describe('getFetchUserRequestState', () => {
+  describe('fetchUserRequestSelector', () => {
     it('should return fetchUser request state', () => {
-      expect(getFetchUserRequestState(state)).toEqual(fetchUserState);
+      expect(fetchUserRequestSelector(state)).toEqual(fetchUserState);
     });
   });
 });

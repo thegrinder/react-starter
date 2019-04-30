@@ -12,12 +12,12 @@ export const fetchUsersRequestSelector = state => usersStateSelector(state).requ
 export const fetchUserRequestSelector = state => usersStateSelector(state).requests.fetchUser;
 
 // hooks
-export const getUsersState = () => useSelector(usersStateSelector);
+export const useUsersStateSelector = () => useSelector(usersStateSelector);
 
-export const getUsers = () => useSelector(usersSelector);
+export const useUsersSelector = () => useSelector(usersSelector);
 
-export const getUser = id => useSelector(state => userSelector(state, id), [id]);
+export const useUserSelector = id => useSelector(state => userSelector(state, id), [id]);
 
-export const getFetchUsersRequestState = () => useSelector(fetchUsersRequestSelector);
+export const useFetchUsersRequestSelector = () => useSelector(fetchUsersRequestSelector);
 
-export const getFetchUserRequestState = () => useSelector(fetchUserRequestSelector);
+export const useFetchUserRequestSelector = () => useSelector(fetchUserRequestSelector);

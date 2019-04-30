@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { Text, Heading } from 'basic-styled-uikit';
 
 import { Card, Spinner, Container } from '../../components';
-import { useFetchUserActions, getUser, getFetchUserRequestState } from '../../redux/users';
+import { useFetchUserActions, useUserSelector, useFetchUserRequestSelector } from '../../redux/users';
 
 const propTypes = {
   match: PropTypes.object.isRequired,
@@ -17,8 +17,8 @@ export const User = ({ match }) => {
     fetchUser(match.params.id);
   }, []);
 
-  const { loading } = getFetchUserRequestState();
-  const user = getUser(match.params.id);
+  const { loading } = useFetchUserRequestSelector();
+  const user = useUserSelector(match.params.id);
 
   if (loading || !user) {
     return (
