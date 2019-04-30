@@ -1,6 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import PropTypes from 'prop-types';
+import configureStore from 'redux-mock-store';
 import { IntlProvider } from 'react-intl';
 import { ThemeProvider } from 'styled-components';
 import * as RTL from 'react-testing-library';
@@ -22,5 +23,7 @@ const Providers = ({ children }) => (
 Providers.propTypes = propTypes;
 
 export const render = (ui, options) => RTL.render(ui, { wrapper: Providers, ...options });
+
+export const createStore = configureStore();
 
 export const { fireEvent, act } = RTL;

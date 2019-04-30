@@ -1,39 +1,57 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import { MemoryRouter } from 'react-router-dom';
 
-import { render, fireEvent, act } from '../../../helpers/test-utils';
+import {
+  render,
+  fireEvent,
+  act,
+  createStore,
+} from '../../../helpers/test-utils';
+import { useFetchUsersActions } from '../../../redux/users';
 import { Users } from '..';
 
-const fetchUsers = jest.fn();
-const requiredProps = {
-  fetchUsers,
-  loading: false,
+jest.mock('../../../redux/users');
+
+
+const state = {
   users: {
-    id: {
-      id: 'id',
-      name: 'name',
-      username: 'username',
-      email: 'email@email.com',
-      phone: '132456776',
+    data: {
+      id: {
+        id: 'id',
+        name: 'name',
+        username: 'username',
+        email: 'email@email.com',
+        phone: '132456776',
+      },
+    },
+    requests: {
+      fetchUsers: {
+        loading: false,
+      },
     },
   },
 };
 
-const renderComponent = (props = {}) => render(
+const renderComponent = store => render(
   <MemoryRouter>
-    <Users {...requiredProps} {...props} />
+    <Provider store={store}>
+      <Users />
+    </Provider>
   </MemoryRouter>,
 );
 
 describe('<Users />', () => {
   it('should render correctly', () => {
-    const { container: { firstChild } } = renderComponent();
+    const store = createStore(state);
+    const { container: { firstChild } } = renderComponent(store);
     expect(firstChild).toBeDefined();
     expect(firstChild).toMatchSnapshot();
   });
 
   it('should search users with a given name on submit button click', () => {
-    const { getByText, getByPlaceholderText } = renderComponent();
+    const store = createStore(state);
+    const { getByText, getByPlaceholderText } = renderComponent(store);
     const name = 'text';
     act(() => {
       fireEvent.change(getByPlaceholderText('Search'), { target: { value: name } });
@@ -41,6 +59,6 @@ describe('<Users />', () => {
     act(() => {
       fireEvent.click(getByText('Search'));
     });
-    expect(fetchUsers).toHaveBeenCalledWith({ name });
+    expect(useFetchUsersActions().fetchUsers).toHaveBeenCalledWith({ name });
   });
 });
