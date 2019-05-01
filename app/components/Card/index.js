@@ -1,7 +1,6 @@
 import styled from 'styled-components';
-import { getColor } from 'basic-styled-uikit';
+import { getColor, rem } from 'basic-styled-uikit';
 
-import { rem } from 'utils';
 
 const Card = styled.div`
   background: ${getColor('white')};

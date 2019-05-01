@@ -1,5 +1,3 @@
-export const rem = pxValue => `${pxValue / 16}rem`;
-
 export const isEmptyObj = obj => Object.keys(obj).length === 0;
 
 export const isEmptyArr = arr => arr.length === 0;
