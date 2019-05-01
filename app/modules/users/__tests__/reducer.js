@@ -1,7 +1,7 @@
 import usersReducer, { initialUsersState } from '../reducer';
 import { fetchUsersActions } from '../requests/fetchUsers';
 import { fetchUserActions } from '../requests/fetchUser';
-import { createUsersState } from '../test-uitls';
+import { createUsersState } from '../test-utils';
 
 describe('fetchUsers reducer', () => {
   it('return initial state', () => {

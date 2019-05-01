@@ -9,7 +9,8 @@ import {
   createStore,
 } from 'test-utils';
 import { fetchUsersActions } from 'modules/users';
-import { createState, createRequestState } from 'modules/users/test-uitls';
+import { createState, createRequestState } from 'modules/users/test-utils';
+
 import { Users } from '..';
 
 

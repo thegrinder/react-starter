@@ -4,7 +4,8 @@ import { MemoryRouter, Route } from 'react-router-dom';
 
 import { render, createStore } from 'test-utils';
 import { fetchUserActions } from 'modules/users';
-import { createUser, createState, createRequestState } from 'modules/users/test-uitls';
+import { createUser, createState, createRequestState } from 'modules/users/test-utils';
+
 import { User } from '..';
 
 

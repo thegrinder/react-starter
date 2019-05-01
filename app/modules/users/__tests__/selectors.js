@@ -5,7 +5,7 @@ import {
   fetchUsersRequestSelector,
   fetchUserRequestSelector,
 } from '../selectors';
-import { createState, createRequestState } from '../test-uitls';
+import { createState, createRequestState } from '../test-utils';
 
 
 describe('users selectors', () => {
