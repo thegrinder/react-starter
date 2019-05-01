@@ -28,6 +28,7 @@ module.exports = {
     'react/jsx-uses-react': 'error',
     'react/jsx-filename-extension': 'off',
     'react/forbid-prop-types': 'off',
+    'react/jsx-wrap-multilines': 'off',
     'jsx-a11y/label-has-for': 'off',
     'import/no-extraneous-dependencies': [
       'error',
