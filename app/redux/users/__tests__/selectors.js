@@ -5,64 +5,61 @@ import {
   fetchUsersRequestSelector,
   fetchUserRequestSelector,
 } from '../selectors';
-import { initialRequestState } from '../../helpers';
+import { createState, createRequestState } from '../test-uitls';
 
-const id = '1';
-const data = {
-  [id]: {
-    id,
-    name: 'user',
-  },
-};
-
-const fetchUsersState = {
-  ...initialRequestState,
-  error: 'error',
-};
-
-const fetchUserState = {
-  ...initialRequestState,
-  succeeded: true,
-};
-
-const state = {
-  users: {
-    data,
-    requests: {
-      fetchUsers: fetchUsersState,
-      fetchUser: fetchUserState,
-    },
-  },
-};
 
 describe('users selectors', () => {
   describe('usersStateSelector', () => {
     it('should return users state', () => {
+      const state = createState();
       expect(usersStateSelector(state)).toEqual(state.users);
     });
   });
 
   describe('usersSelector', () => {
     it('should return fetched users', () => {
+      const data = {
+        id: {
+          id: 'id',
+          name: 'user',
+        },
+      };
+      const state = createState({ data });
       expect(usersSelector(state)).toEqual(data);
     });
   });
 
   describe('userSelector', () => {
     it('should return the correct user', () => {
-      expect(userSelector(state, id)).toEqual(data[id]);
+      const id = 'id';
+      const user = {
+        id,
+        name: 'user',
+      };
+      const state = createState({ data: { [id]: user } });
+      expect(userSelector(state, id)).toEqual(user);
     });
   });
 
   describe('fetchUsersRequestSelector', () => {
     it('should return fetchUsers request state', () => {
-      expect(fetchUsersRequestSelector(state)).toEqual(fetchUsersState);
+      const fetchUsersRequestState = createRequestState({ loading: true });
+      const state = createState({
+        requestKey: 'fetchUsers',
+        requestState: fetchUsersRequestState,
+      });
+      expect(fetchUsersRequestSelector(state)).toEqual(fetchUsersRequestState);
     });
   });
 
   describe('fetchUserRequestSelector', () => {
     it('should return fetchUser request state', () => {
-      expect(fetchUserRequestSelector(state)).toEqual(fetchUserState);
+      const fetchUserRequestState = createRequestState({ exception: 'exception' });
+      const state = createState({
+        requestKey: 'fetchUser',
+        requestState: fetchUserRequestState,
+      });
+      expect(fetchUserRequestSelector(state)).toEqual(fetchUserRequestState);
     });
   });
 });
