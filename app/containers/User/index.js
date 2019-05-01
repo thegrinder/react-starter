@@ -16,7 +16,7 @@ export const User = ({ match }) => {
 
   useEffect(() => {
     dispatch(fetchUserActions.trigger(match.params.id));
-  }, []);
+  }, [dispatch]);
 
   const { loading } = useFetchUserRequestSelector();
   const user = useUserSelector(match.params.id);
