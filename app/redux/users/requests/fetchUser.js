@@ -1,6 +1,5 @@
-import { useActions } from 'react-redux';
-
 import { call, put } from 'redux-saga/effects';
+
 import { createRequest } from '../../helpers';
 import { fetchUser } from '../requests';
 
@@ -37,8 +36,3 @@ export function* fetchUserSaga(action) {
     yield put(fetchUserActions.fulfilled());
   }
 }
-
-export const useFetchUserActions = () => useActions({
-  fetchUser: fetchUserActions.trigger,
-  resetFetchUserState: fetchUserActions.reset,
-});

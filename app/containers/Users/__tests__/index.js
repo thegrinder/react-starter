@@ -8,10 +8,8 @@ import {
   act,
   createStore,
 } from '../../../helpers/test-utils';
-import { useFetchUsersActions } from '../../../redux/users';
+import { fetchUsers } from '../../../redux/users';
 import { Users } from '..';
-
-jest.mock('../../../redux/users');
 
 
 const state = {
@@ -59,6 +57,6 @@ describe('<Users />', () => {
     act(() => {
       fireEvent.click(getByText('Search'));
     });
-    expect(useFetchUsersActions().fetchUsers).toHaveBeenCalledWith({ name });
+    expect(store.getActions()).toContainEqual(fetchUsers({ name }));
   });
 });

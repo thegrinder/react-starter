@@ -1,17 +1,5 @@
-const fetchUser = jest.fn();
-const resetFetchUserState = jest.fn();
+const promise = () => Promise.resolve({ data: {} });
 
-export const useFetchUserActions = jest.fn().mockImplementation(() => ({
-  fetchUser,
-  resetFetchUserState,
-}));
+export const fetchUser = jest.fn(promise);
 
-const fetchUsers = jest.fn();
-const resetFetchUsersState = jest.fn();
-
-export const useFetchUsersActions = jest.fn().mockImplementation(() => ({
-  fetchUsers,
-  resetFetchUsersState,
-}));
-
-export * from '../selectors';
+export const fetchUsers = jest.fn(promise);

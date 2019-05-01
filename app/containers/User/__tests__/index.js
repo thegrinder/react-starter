@@ -3,10 +3,8 @@ import { Provider } from 'react-redux';
 import { MemoryRouter, Route } from 'react-router-dom';
 
 import { render, createStore } from '../../../helpers/test-utils';
-import { useFetchUserActions } from '../../../redux/users';
+import { fetchUser } from '../../../redux/users';
 import { User } from '..';
-
-jest.mock('../../../redux/users');
 
 
 const id = 'id';
@@ -60,6 +58,6 @@ describe('<User />', () => {
   it('should fetch user with a specific id on mount', () => {
     const store = createStore(state);
     renderComponent(store);
-    expect(useFetchUserActions().fetchUser).toHaveBeenCalledWith(id);
+    expect(store.getActions()).toContainEqual(fetchUser(id));
   });
 });

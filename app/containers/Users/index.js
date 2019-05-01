@@ -1,9 +1,10 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { Link as RouterLink } from 'react-router-dom';
 import { useForm } from 'react-handy-hooks';
 import { Link, Heading } from 'basic-styled-uikit';
 
-import { useFetchUsersActions, useUsersSelector, useFetchUsersRequestSelector } from '../../redux/users';
+import { fetchUsers, useUsersSelector, useFetchUsersRequestSelector } from '../../redux/users';
 import {
   Card,
   InputField,
@@ -12,17 +13,22 @@ import {
 } from '../../components';
 
 export const Users = () => {
+  const dispatch = useDispatch();
+
   const users = useUsersSelector();
   const { loading } = useFetchUsersRequestSelector();
-  const { fetchUsers } = useFetchUsersActions();
 
   const initialValues = {
     name: '',
   };
 
+  const onSubmit = (values) => {
+    dispatch(fetchUsers(values));
+  };
+
   const { getFieldProps, handleSubmit } = useForm({
     initialValues,
-    onSubmit: fetchUsers,
+    onSubmit,
   });
 
   return (

@@ -1,20 +1,21 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { Text, Heading } from 'basic-styled-uikit';
 
 import { Card, Spinner, Container } from '../../components';
-import { useFetchUserActions, useUserSelector, useFetchUserRequestSelector } from '../../redux/users';
+import { fetchUser, useUserSelector, useFetchUserRequestSelector } from '../../redux/users';
 
 const propTypes = {
   match: PropTypes.object.isRequired,
 };
 
 export const User = ({ match }) => {
-  const { fetchUser } = useFetchUserActions();
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    fetchUser(match.params.id);
+    dispatch(fetchUser(match.params.id));
   }, []);
 
   const { loading } = useFetchUserRequestSelector();
