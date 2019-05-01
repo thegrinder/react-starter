@@ -11,20 +11,23 @@ const requiredProps = {
   id: 'id',
 };
 
-
-const renderComponent = (props = {}) => render(
-  <InputField {...requiredProps} {...props} />,
-);
+const renderComponent = (props = {}) =>
+  render(<InputField {...requiredProps} {...props} />);
 
 describe('<InputField />', () => {
   it('should render correctly', () => {
-    const { container: { firstChild } } = renderComponent();
+    const {
+      container: { firstChild },
+    } = renderComponent();
     expect(firstChild).toBeDefined();
     expect(firstChild).toMatchSnapshot();
   });
 
   it('should render error and label', () => {
-    const { container: { firstChild }, getByText } = renderComponent({
+    const {
+      container: { firstChild },
+      getByText,
+    } = renderComponent({
       touched: true,
       error: 'error',
       label: 'label',

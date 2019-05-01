@@ -1,5 +1,8 @@
 import { initialRequestState } from '../helpers';
-import { fetchUsersActionTypes, fetchUsersReducer } from './requests/fetchUsers';
+import {
+  fetchUsersActionTypes,
+  fetchUsersReducer,
+} from './requests/fetchUsers';
 import { fetchUserActionTypes, fetchUserReducer } from './requests/fetchUser';
 
 export const initialUsersState = {

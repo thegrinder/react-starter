@@ -44,10 +44,14 @@ describe('fetchUserSaga', () => {
     const response = { data: {} };
     fetchUser.mockResolvedValueOnce(response);
 
-    await runSaga({
-      dispatch: action => dispatched.push(action),
-      getState: () => { },
-    }, fetchUserSaga, { id }).done;
+    await runSaga(
+      {
+        dispatch: action => dispatched.push(action),
+        getState: () => {},
+      },
+      fetchUserSaga,
+      { id }
+    ).done;
 
     const expectedActions = [
       fetchUserActions.loading(),
@@ -63,10 +67,14 @@ describe('fetchUserSaga', () => {
     const error = new Error('test error');
     fetchUser.mockRejectedValueOnce(error);
 
-    await runSaga({
-      dispatch: action => dispatched.push(action),
-      getState: () => { },
-    }, fetchUserSaga, { id }).done;
+    await runSaga(
+      {
+        dispatch: action => dispatched.push(action),
+        getState: () => {},
+      },
+      fetchUserSaga,
+      { id }
+    ).done;
 
     const expectedActions = [
       fetchUserActions.loading(),

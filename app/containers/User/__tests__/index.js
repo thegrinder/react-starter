@@ -4,20 +4,24 @@ import { MemoryRouter, Route } from 'react-router-dom';
 
 import { render, createStore } from 'test-utils';
 import { fetchUserActions } from 'modules/users';
-import { createUser, createState, createRequestState } from 'modules/users/test-utils';
+import {
+  createUser,
+  createState,
+  createRequestState,
+} from 'modules/users/test-utils';
 
 import { User } from '..';
 
-
 const id = 'id';
 
-const renderComponent = store => render(
-  <MemoryRouter initialEntries={[`/users/${id}`]}>
-    <Provider store={store}>
-      <Route path="/users/:id" component={User} />
-    </Provider>
-  </MemoryRouter>,
-);
+const renderComponent = store =>
+  render(
+    <MemoryRouter initialEntries={[`/users/${id}`]}>
+      <Provider store={store}>
+        <Route path="/users/:id" component={User} />
+      </Provider>
+    </MemoryRouter>
+  );
 
 describe('<User />', () => {
   it('should render correctly', () => {
@@ -26,7 +30,9 @@ describe('<User />', () => {
       data: { id: user },
     });
     const store = createStore(state);
-    const { container: { firstChild } } = renderComponent(store);
+    const {
+      container: { firstChild },
+    } = renderComponent(store);
     expect(firstChild).toBeDefined();
     expect(firstChild).toMatchSnapshot();
   });

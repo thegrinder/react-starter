@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { getColor, rem } from 'basic-styled-uikit';
 
-
 const Card = styled.div`
   background: ${getColor('white')};
   border-radius: ${rem(6)};

@@ -3,16 +3,17 @@ import React from 'react';
 import { render } from 'test-utils';
 import Container from '..';
 
-
 const children = <span>children</span>;
 
-const renderComponent = (props = {}) => render(
-  <Container {...props}>{children}</Container>,
-);
+const renderComponent = (props = {}) =>
+  render(<Container {...props}>{children}</Container>);
 
 describe('<Container />', () => {
   it('should render correctly with default props and children', () => {
-    const { container: { firstChild }, getByText } = renderComponent();
+    const {
+      container: { firstChild },
+      getByText,
+    } = renderComponent();
     const childrenElement = getByText('children');
     expect(firstChild).toBeDefined();
     expect(firstChild).toContainElement(childrenElement);
@@ -20,7 +21,9 @@ describe('<Container />', () => {
   });
 
   it('should render <div> tag by default', () => {
-    const { container: { firstChild } } = renderComponent();
+    const {
+      container: { firstChild },
+    } = renderComponent();
     expect(firstChild.tagName).toEqual('DIV');
   });
 });

@@ -17,7 +17,6 @@ const defaultProps = {
   label: '',
 };
 
-
 const InputField = ({
   label,
   onChange,
@@ -29,7 +28,11 @@ const InputField = ({
   ...rest
 }) => (
   <div className="mb-2">
-    {label && <Text as="label" htmlFor={id}>{label}</Text>}
+    {label && (
+      <Text as="label" htmlFor={id}>
+        {label}
+      </Text>
+    )}
     <Input
       id={id}
       onChange={onChange}

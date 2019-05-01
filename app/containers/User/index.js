@@ -5,7 +5,11 @@ import { withRouter } from 'react-router-dom';
 import { Text, Heading } from 'basic-styled-uikit';
 
 import { Card, Spinner, Container } from 'components';
-import { fetchUserActions, useUserSelector, useFetchUserRequestSelector } from 'modules/users';
+import {
+  fetchUserActions,
+  useUserSelector,
+  useFetchUserRequestSelector,
+} from 'modules/users';
 
 const propTypes = {
   match: PropTypes.object.isRequired,
@@ -33,7 +37,6 @@ export const User = ({ match }) => {
 
   return (
     <Container className="pv-6">
-
       <Card className="pa-6">
         <Heading as="h1" sizing="h3" marginBottom>
           {name}

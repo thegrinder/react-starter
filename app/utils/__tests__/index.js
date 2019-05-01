@@ -1,10 +1,4 @@
-import {
-  isEmptyArr,
-  isEmptyObj,
-  omitBy,
-  union,
-  normalize,
-} from '..';
+import { isEmptyArr, isEmptyObj, omitBy, union, normalize } from '..';
 
 describe('utils', () => {
   describe('isEmptyObj', () => {

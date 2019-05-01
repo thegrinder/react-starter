@@ -7,17 +7,22 @@ export const usersSelector = state => usersStateSelector(state).data;
 
 export const userSelector = (state, id) => usersStateSelector(state).data[id];
 
-export const fetchUsersRequestSelector = state => usersStateSelector(state).requests.fetchUsers;
+export const fetchUsersRequestSelector = state =>
+  usersStateSelector(state).requests.fetchUsers;
 
-export const fetchUserRequestSelector = state => usersStateSelector(state).requests.fetchUser;
+export const fetchUserRequestSelector = state =>
+  usersStateSelector(state).requests.fetchUser;
 
 // hooks
 export const useUsersStateSelector = () => useSelector(usersStateSelector);
 
 export const useUsersSelector = () => useSelector(usersSelector);
 
-export const useUserSelector = id => useSelector(state => userSelector(state, id), [id]);
+export const useUserSelector = id =>
+  useSelector(state => userSelector(state, id), [id]);
 
-export const useFetchUsersRequestSelector = () => useSelector(fetchUsersRequestSelector);
+export const useFetchUsersRequestSelector = () =>
+  useSelector(fetchUsersRequestSelector);
 
-export const useFetchUserRequestSelector = () => useSelector(fetchUserRequestSelector);
+export const useFetchUserRequestSelector = () =>
+  useSelector(fetchUserRequestSelector);

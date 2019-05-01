@@ -6,10 +6,8 @@ module.exports = {
     tailwindcss('./app/theme/tailwind.js'),
     prefixer({
       prefix: 'html',
-      transform: (prefix, selector, prefixedSelector) => (selector.includes('html')
-        ? selector
-        : prefixedSelector
-      ),
+      transform: (prefix, selector, prefixedSelector) =>
+        selector.includes('html') ? selector : prefixedSelector,
     }),
   ],
 };

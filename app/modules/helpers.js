@@ -5,7 +5,7 @@ export const initialRequestState = {
   succeeded: false,
 };
 
-export const createRequest = (namespace) => {
+export const createRequest = namespace => {
   const actionTypes = {
     FAILED: `${namespace}/FAILED`,
     FULFILLED: `${namespace}/FULFILLED`,

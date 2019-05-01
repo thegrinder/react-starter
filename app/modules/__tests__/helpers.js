@@ -52,7 +52,7 @@ describe('reducer', () => {
       loading: true,
     };
     expect(reducer(initialRequestState, actionCreators.loading())).toEqual(
-      expectedState,
+      expectedState
     );
   });
 
@@ -62,7 +62,7 @@ describe('reducer', () => {
       succeeded: true,
     };
     expect(reducer(initialRequestState, actionCreators.succeeded())).toEqual(
-      expectedState,
+      expectedState
     );
   });
 
@@ -72,7 +72,7 @@ describe('reducer', () => {
       error,
     };
     expect(reducer(initialRequestState, actionCreators.failed(error))).toEqual(
-      expectedState,
+      expectedState
     );
   });
 

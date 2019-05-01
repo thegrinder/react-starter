@@ -26,10 +26,7 @@ const devConfig = {
     publicPath: '/',
   },
   resolve: {
-    modules: [
-      'node_modules',
-      PATHS.app,
-    ],
+    modules: ['node_modules', PATHS.app],
   },
   module: {
     rules: [

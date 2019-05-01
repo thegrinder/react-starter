@@ -6,7 +6,4 @@ import App from './containers/App';
 
 Modal.setAppElement('#app');
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('app'),
-);
+ReactDOM.render(<App />, document.getElementById('app'));

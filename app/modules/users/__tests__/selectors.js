@@ -7,7 +7,6 @@ import {
 } from '../selectors';
 import { createState, createRequestState } from '../test-utils';
 
-
 describe('users selectors', () => {
   describe('usersStateSelector', () => {
     it('should return users state', () => {
@@ -54,7 +53,9 @@ describe('users selectors', () => {
 
   describe('fetchUserRequestSelector', () => {
     it('should return fetchUser request state', () => {
-      const fetchUserRequestState = createRequestState({ exception: 'exception' });
+      const fetchUserRequestState = createRequestState({
+        exception: 'exception',
+      });
       const state = createState({
         requestKey: 'fetchUser',
         requestState: fetchUserRequestState,

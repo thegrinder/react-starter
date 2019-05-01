@@ -4,13 +4,12 @@ import { Link as RouterLink } from 'react-router-dom';
 import { useForm } from 'react-handy-hooks';
 import { Link, Heading } from 'basic-styled-uikit';
 
-import { fetchUsersActions, useUsersSelector, useFetchUsersRequestSelector } from 'modules/users';
 import {
-  Card,
-  InputField,
-  SubmitButton,
-  Container,
-} from 'components';
+  fetchUsersActions,
+  useUsersSelector,
+  useFetchUsersRequestSelector,
+} from 'modules/users';
+import { Card, InputField, SubmitButton, Container } from 'components';
 
 export const Users = () => {
   const dispatch = useDispatch();
@@ -22,7 +21,7 @@ export const Users = () => {
     name: '',
   };
 
-  const onSubmit = (values) => {
+  const onSubmit = values => {
     dispatch(fetchUsersActions.trigger(values));
   };
 
@@ -34,13 +33,20 @@ export const Users = () => {
   return (
     <Container className="pv-6">
       <Card className="pa-8">
-        <form onSubmit={handleSubmit} className="flex flex-row items-start -mh-4">
+        <form
+          onSubmit={handleSubmit}
+          className="flex flex-row items-start -mh-4"
+        >
           <div className="col ph-4">
-            <InputField placeholder="Search" id="search" {...getFieldProps('name')} />
+            <InputField
+              placeholder="Search"
+              id="search"
+              {...getFieldProps('name')}
+            />
           </div>
           <div className="col-auto ph-4">
             <SubmitButton submitting={loading} onClick={handleSubmit}>
-            Search
+              Search
             </SubmitButton>
           </div>
         </form>

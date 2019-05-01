@@ -4,7 +4,9 @@ import { normalize } from 'utils';
 import { createRequest } from '../../helpers';
 import { fetchUsers } from '../api';
 
-const { actionTypes, actionCreators, reducer } = createRequest('users/requests/fetchUsers');
+const { actionTypes, actionCreators, reducer } = createRequest(
+  'users/requests/fetchUsers'
+);
 
 export const fetchUsersActionTypes = actionTypes;
 export const fetchUsersReducer = reducer;

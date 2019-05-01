@@ -8,10 +8,8 @@ module.exports = {
     browser: true,
     jest: true,
   },
-  extends: 'airbnb',
-  plugins: [
-    'react',
-  ],
+  extends: ['airbnb', 'prettier'],
+  plugins: ['react', 'prettier'],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -20,9 +18,7 @@ module.exports = {
   settings: {
     'import/resolver': {
       node: {
-        paths: [
-          path.join(PATHS.app),
-        ],
+        paths: [path.join(PATHS.app)],
       },
     },
   },
@@ -31,24 +27,20 @@ module.exports = {
     'consistent-return': 'off',
     'react/jsx-uses-react': 'error',
     'react/jsx-filename-extension': 'off',
-    'import/prefer-default-export': 'off',
-    'import/no-named-as-default': 'off',
     'react/forbid-prop-types': 'off',
+    'jsx-a11y/label-has-for': 'off',
     'import/no-extraneous-dependencies': [
       'error',
       {
         devDependencies: ['**/config/**/*.js'],
       },
     ],
-    'object-curly-newline': [
+    'prettier/prettier': [
       'error',
       {
-        ImportDeclaration: {
-          multiline: true,
-          minProperties: 4,
-        },
+        singleQuote: true,
+        trailingComma: 'es5',
       },
     ],
-    'jsx-a11y/label-has-for': 'off',
   },
 };

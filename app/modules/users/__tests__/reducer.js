@@ -5,7 +5,9 @@ import { createUsersState } from '../test-utils';
 
 describe('fetchUsers reducer', () => {
   it('return initial state', () => {
-    expect(usersReducer(undefined, { type: 'NOOP' })).toEqual(initialUsersState);
+    expect(usersReducer(undefined, { type: 'NOOP' })).toEqual(
+      initialUsersState
+    );
     expect(initialUsersState).toMatchSnapshot();
   });
 
@@ -13,7 +15,9 @@ describe('fetchUsers reducer', () => {
     const data = { 1: 'test' };
     const state = createUsersState();
     const expectedState = createUsersState({ data });
-    expect(usersReducer(state, fetchUsersActions.update(data))).toEqual(expectedState);
+    expect(usersReducer(state, fetchUsersActions.update(data))).toEqual(
+      expectedState
+    );
   });
 
   it('handles fetchUser UPDATE action properly', () => {
@@ -21,6 +25,8 @@ describe('fetchUsers reducer', () => {
     const data = { id };
     const state = createUsersState();
     const expectedState = createUsersState({ data: { [id]: data } });
-    expect(usersReducer(state, fetchUserActions.update(data))).toEqual(expectedState);
+    expect(usersReducer(state, fetchUserActions.update(data))).toEqual(
+      expectedState
+    );
   });
 });

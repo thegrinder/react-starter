@@ -14,15 +14,14 @@ const propTypes = {
 
 const Providers = ({ children }) => (
   <IntlProvider locale="en">
-    <ThemeProvider theme={theme}>
-      {children}
-    </ThemeProvider>
+    <ThemeProvider theme={theme}>{children}</ThemeProvider>
   </IntlProvider>
 );
 
 Providers.propTypes = propTypes;
 
-export const render = (ui, options) => RTL.render(ui, { wrapper: Providers, ...options });
+export const render = (ui, options) =>
+  RTL.render(ui, { wrapper: Providers, ...options });
 
 export const { fireEvent, act } = RTL;
 

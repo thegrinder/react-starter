@@ -32,28 +32,20 @@ const optimizeCssPlugin = new OptimizeCSSAssetsPlugin({});
 
 const prodConfig = {
   mode: 'production',
-  entry: [
-    PATHS.app,
-  ],
+  entry: [PATHS.app],
   output: {
     path: PATHS.build,
     filename: 'index.js',
     publicPath: '/',
   },
   optimization: {
-    minimizer: [
-      terserPlugin,
-      optimizeCssPlugin,
-    ],
+    minimizer: [terserPlugin, optimizeCssPlugin],
     splitChunks: {
       chunks: 'all',
     },
   },
   resolve: {
-    modules: [
-      'node_modules',
-      PATHS.app,
-    ],
+    modules: ['node_modules', PATHS.app],
   },
   module: {
     rules: [
@@ -86,12 +78,7 @@ const prodConfig = {
       },
     ],
   },
-  plugins: [
-    htmlPlugin,
-    extractCssPlugin,
-    compressionPlugin,
-    analyzerPlugin,
-  ],
+  plugins: [htmlPlugin, extractCssPlugin, compressionPlugin, analyzerPlugin],
 };
 
 module.exports = prodConfig;

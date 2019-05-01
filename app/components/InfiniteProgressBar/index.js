@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import styled, { keyframes } from 'styled-components';
 import { getColor, rem } from 'basic-styled-uikit';
 
-
 const increase = keyframes`
   from { left: -15%; width: 5%; }
   to { left: 130%; width: 100%; }

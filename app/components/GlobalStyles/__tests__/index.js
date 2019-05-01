@@ -5,7 +5,9 @@ import GlobalStyles from '..';
 
 describe('<GlobalStyles />', () => {
   it('should render correctly', () => {
-    const { container: { firstChild } } = render(<GlobalStyles />);
+    const {
+      container: { firstChild },
+    } = render(<GlobalStyles />);
     expect(firstChild).toBeDefined();
   });
 });

@@ -15,7 +15,11 @@ export const createRequestState = (requestState = {}) => ({
   ...requestState,
 });
 
-export const createUsersState = ({ requestKey = '', requestState = {}, data = {} } = {}) => ({
+export const createUsersState = ({
+  requestKey = '',
+  requestState = {},
+  data = {},
+} = {}) => ({
   ...initialUsersState,
   data: {
     ...initialUsersState.data,

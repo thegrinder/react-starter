@@ -63,7 +63,6 @@ const colors = {
   danger900: '#b71c1c',
 };
 
-
 /**
  * Typography
  */
@@ -71,7 +70,6 @@ const typography = {
   baseFontSize: 16,
   baseLineHeight: 1.5,
 };
-
 
 /**
  * Button
@@ -169,7 +167,6 @@ const button = {
     fontFamily: 'Lato, Arial, Helvetica, sans-serif',
   },
 };
-
 
 /**
  * Form
@@ -279,7 +276,6 @@ const form = {
   },
 };
 
-
 /**
  * Heading
  */
@@ -322,7 +318,6 @@ const heading = {
   },
 };
 
-
 /**
  * Text
  */
@@ -358,7 +353,6 @@ const text = {
     fontFamily: 'Lato, Arial, Helvetica, sans-serif',
   },
 };
-
 
 /**
  * ColorBox
@@ -398,7 +392,6 @@ const colorBox = {
   },
 };
 
-
 /**
  * Link
  */
@@ -425,7 +418,6 @@ const link = {
     fontFamily: 'Lato, Arial, Helvetica, sans-serif',
   },
 };
-
 
 const theme = {
   uiKit: {
