@@ -2,9 +2,9 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { MemoryRouter, Route } from 'react-router-dom';
 
-import { render, createStore } from '../../../helpers/test-utils';
-import { fetchUserActions } from '../../../redux/users';
-import { createUser, createState, createRequestState } from '../../../redux/users/test-uitls';
+import { render, createStore } from 'test-utils';
+import { fetchUserActions } from 'modules/users';
+import { createUser, createState, createRequestState } from 'modules/users/test-uitls';
 import { User } from '..';
 
 

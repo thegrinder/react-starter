@@ -49,6 +49,12 @@ const prodConfig = {
       chunks: 'all',
     },
   },
+  resolve: {
+    modules: [
+      'node_modules',
+      PATHS.app,
+    ],
+  },
   module: {
     rules: [
       {

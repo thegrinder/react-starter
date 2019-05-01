@@ -1,3 +1,6 @@
+const path = require('path');
+const PATHS = require('../paths');
+
 module.exports = {
   parser: 'babel-eslint',
   env: {
@@ -12,6 +15,15 @@ module.exports = {
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
+    },
+  },
+  settings: {
+    'import/resolver': {
+      node: {
+        paths: [
+          path.join(PATHS.app),
+        ],
+      },
     },
   },
   rules: {

@@ -4,7 +4,7 @@ import {
   omitBy,
   union,
   normalize,
-} from '../utils';
+} from '..';
 
 describe('utils', () => {
   describe('isEmptyObj', () => {

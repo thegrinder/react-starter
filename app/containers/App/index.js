@@ -4,9 +4,10 @@ import { ThemeProvider } from 'styled-components';
 import { HashRouter, Route } from 'react-router-dom';
 import { IntlProvider } from 'react-intl';
 
-import { configureStore, runSaga } from '../../redux/store';
-import theme from '../../theme/components';
+import { configureStore, runSaga } from 'modules/store';
 import Main from '../Main';
+
+import theme from '../../theme/components';
 import '../../index.css';
 
 const store = configureStore();

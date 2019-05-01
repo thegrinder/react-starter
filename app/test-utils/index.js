@@ -24,6 +24,6 @@ Providers.propTypes = propTypes;
 
 export const render = (ui, options) => RTL.render(ui, { wrapper: Providers, ...options });
 
-export const createStore = configureStore();
-
 export const { fireEvent, act } = RTL;
+
+export const createStore = configureStore();

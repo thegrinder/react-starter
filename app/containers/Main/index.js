@@ -2,7 +2,7 @@ import React, { lazy, Suspense } from 'react';
 import { ResetCss } from 'basic-styled-uikit';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
-import { GlobalStyles, InfiniteProgressBar } from '../../components';
+import { GlobalStyles, InfiniteProgressBar } from 'components';
 
 const createLazyComponent = Component => () => (
   <Suspense fallback={<InfiniteProgressBar />}>

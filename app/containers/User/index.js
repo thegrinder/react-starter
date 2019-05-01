@@ -4,8 +4,8 @@ import { useDispatch } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { Text, Heading } from 'basic-styled-uikit';
 
-import { Card, Spinner, Container } from '../../components';
-import { fetchUserActions, useUserSelector, useFetchUserRequestSelector } from '../../redux/users';
+import { Card, Spinner, Container } from 'components';
+import { fetchUserActions, useUserSelector, useFetchUserRequestSelector } from 'modules/users';
 
 const propTypes = {
   match: PropTypes.object.isRequired,

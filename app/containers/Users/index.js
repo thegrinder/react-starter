@@ -4,13 +4,13 @@ import { Link as RouterLink } from 'react-router-dom';
 import { useForm } from 'react-handy-hooks';
 import { Link, Heading } from 'basic-styled-uikit';
 
-import { fetchUsersActions, useUsersSelector, useFetchUsersRequestSelector } from '../../redux/users';
+import { fetchUsersActions, useUsersSelector, useFetchUsersRequestSelector } from 'modules/users';
 import {
   Card,
   InputField,
   SubmitButton,
   Container,
-} from '../../components';
+} from 'components';
 
 export const Users = () => {
   const dispatch = useDispatch();

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { render } from '../../../helpers/test-utils';
+import { render } from 'test-utils';
 import SubmitButton from '..';
 
 

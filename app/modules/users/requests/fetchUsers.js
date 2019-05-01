@@ -1,6 +1,6 @@
 import { call, put } from 'redux-saga/effects';
 
-import { normalize } from '../../../helpers/utils';
+import { normalize } from 'utils';
 import { createRequest } from '../../helpers';
 import { fetchUsers } from '../api';
 

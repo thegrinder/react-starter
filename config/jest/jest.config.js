@@ -11,4 +11,8 @@ module.exports = {
     'react-testing-library/cleanup-after-each',
     path.join(__dirname, 'setupTests'),
   ],
+  moduleDirectories: [
+    'node_modules',
+    'app',
+  ],
 };

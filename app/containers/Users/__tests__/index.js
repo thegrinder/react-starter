@@ -7,9 +7,9 @@ import {
   fireEvent,
   act,
   createStore,
-} from '../../../helpers/test-utils';
-import { fetchUsersActions } from '../../../redux/users';
-import { createState, createRequestState } from '../../../redux/users/test-uitls';
+} from 'test-utils';
+import { fetchUsersActions } from 'modules/users';
+import { createState, createRequestState } from 'modules/users/test-uitls';
 import { Users } from '..';
 
 
