@@ -38,17 +38,15 @@ describe('<User />', () => {
       requestState: createRequestState({ loading: true }),
     });
     const store = createStore(state);
-    const { container: { firstChild }, getByLabelText } = renderComponent(store);
-    const spinnerElement = getByLabelText('loading...');
-    expect(firstChild).toContainElement(spinnerElement);
+    const { getByLabelText } = renderComponent(store);
+    expect(getByLabelText('loading...')).toBeInTheDocument();
   });
 
   it('should render the spinner if user is not defined', () => {
     const state = createState();
     const store = createStore(state);
-    const { container: { firstChild }, getByLabelText } = renderComponent(store);
-    const spinnerElement = getByLabelText('loading...');
-    expect(firstChild).toContainElement(spinnerElement);
+    const { getByLabelText } = renderComponent(store);
+    expect(getByLabelText('loading...')).toBeInTheDocument();
   });
 
   it('should fetch user with a specific id on mount', () => {

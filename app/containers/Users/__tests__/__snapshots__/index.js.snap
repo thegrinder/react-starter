@@ -50,18 +50,7 @@ exports[`<Users /> should render correctly 1`] = `
       >
         Results:
       </h5>
-      <ul>
-        <li>
-          <a
-            class="StyledLink-sc-1s1vukk-0 cduPSp"
-            href="/users/id"
-            linktype="default"
-            sizing="m"
-          >
-            name
-          </a>
-        </li>
-      </ul>
+      <ul />
     </div>
   </div>
 </div>

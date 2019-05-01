@@ -9,27 +9,9 @@ import {
   createStore,
 } from '../../../helpers/test-utils';
 import { fetchUsers } from '../../../redux/users';
+import { createState, createRequestState } from '../../../redux/users/test-uitls';
 import { Users } from '..';
 
-
-const state = {
-  users: {
-    data: {
-      id: {
-        id: 'id',
-        name: 'name',
-        username: 'username',
-        email: 'email@email.com',
-        phone: '132456776',
-      },
-    },
-    requests: {
-      fetchUsers: {
-        loading: false,
-      },
-    },
-  },
-};
 
 const renderComponent = store => render(
   <MemoryRouter>
@@ -41,6 +23,7 @@ const renderComponent = store => render(
 
 describe('<Users />', () => {
   it('should render correctly', () => {
+    const state = createState();
     const store = createStore(state);
     const { container: { firstChild } } = renderComponent(store);
     expect(firstChild).toBeDefined();
@@ -48,6 +31,7 @@ describe('<Users />', () => {
   });
 
   it('should search users with a given name on submit button click', () => {
+    const state = createState();
     const store = createStore(state);
     const { getByText, getByPlaceholderText } = renderComponent(store);
     const name = 'text';
@@ -58,5 +42,15 @@ describe('<Users />', () => {
       fireEvent.click(getByText('Search'));
     });
     expect(store.getActions()).toContainEqual(fetchUsers({ name }));
+  });
+
+  it('should render the spinner when the request is being made', () => {
+    const state = createState({
+      requestKey: 'fetchUsers',
+      requestState: createRequestState({ loading: true }),
+    });
+    const store = createStore(state);
+    const { getByLabelText } = renderComponent(store);
+    expect(getByLabelText('loading...')).toBeInTheDocument();
   });
 });
