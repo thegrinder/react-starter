@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom';
 import { Text, Heading } from 'basic-styled-uikit';
 
 import { Card, Spinner, Container } from '../../components';
-import { fetchUser, useUserSelector, useFetchUserRequestSelector } from '../../redux/users';
+import { fetchUserActions, useUserSelector, useFetchUserRequestSelector } from '../../redux/users';
 
 const propTypes = {
   match: PropTypes.object.isRequired,
@@ -15,7 +15,7 @@ export const User = ({ match }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchUser(match.params.id));
+    dispatch(fetchUserActions.trigger(match.params.id));
   }, []);
 
   const { loading } = useFetchUserRequestSelector();

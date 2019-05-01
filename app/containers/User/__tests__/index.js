@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import { MemoryRouter, Route } from 'react-router-dom';
 
 import { render, createStore } from '../../../helpers/test-utils';
-import { fetchUser } from '../../../redux/users';
+import { fetchUserActions } from '../../../redux/users';
 import { createUser, createState, createRequestState } from '../../../redux/users/test-uitls';
 import { User } from '..';
 
@@ -53,6 +53,6 @@ describe('<User />', () => {
     const state = createState();
     const store = createStore(state);
     renderComponent(store);
-    expect(store.getActions()).toContainEqual(fetchUser(id));
+    expect(store.getActions()).toContainEqual(fetchUserActions.trigger(id));
   });
 });

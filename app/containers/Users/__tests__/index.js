@@ -8,7 +8,7 @@ import {
   act,
   createStore,
 } from '../../../helpers/test-utils';
-import { fetchUsers } from '../../../redux/users';
+import { fetchUsersActions } from '../../../redux/users';
 import { createState, createRequestState } from '../../../redux/users/test-uitls';
 import { Users } from '..';
 
@@ -41,7 +41,7 @@ describe('<Users />', () => {
     act(() => {
       fireEvent.click(getByText('Search'));
     });
-    expect(store.getActions()).toContainEqual(fetchUsers({ name }));
+    expect(store.getActions()).toContainEqual(fetchUsersActions.trigger({ name }));
   });
 
   it('should render the spinner when the request is being made', () => {

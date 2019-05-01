@@ -1,2 +1,2 @@
-export * from './requests/actions';
+export * from './requests';
 export * from './selectors';

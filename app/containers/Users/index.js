@@ -4,7 +4,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import { useForm } from 'react-handy-hooks';
 import { Link, Heading } from 'basic-styled-uikit';
 
-import { fetchUsers, useUsersSelector, useFetchUsersRequestSelector } from '../../redux/users';
+import { fetchUsersActions, useUsersSelector, useFetchUsersRequestSelector } from '../../redux/users';
 import {
   Card,
   InputField,
@@ -23,7 +23,7 @@ export const Users = () => {
   };
 
   const onSubmit = (values) => {
-    dispatch(fetchUsers(values));
+    dispatch(fetchUsersActions.trigger(values));
   };
 
   const { getFieldProps, handleSubmit } = useForm({
