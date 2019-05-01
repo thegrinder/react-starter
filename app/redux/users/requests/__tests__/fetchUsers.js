@@ -1,12 +1,12 @@
 import { runSaga } from 'redux-saga';
-import { fetchUsers } from '../../requests';
+import { fetchUsers } from '../../api';
 import {
   fetchUsersActionTypes,
   fetchUsersActions,
   fetchUsersSaga,
 } from '../fetchUsers';
 
-jest.mock('../../requests');
+jest.mock('../../api');
 
 describe('fetchUsers action creators', () => {
   describe('fetchUsersUpdate', () => {

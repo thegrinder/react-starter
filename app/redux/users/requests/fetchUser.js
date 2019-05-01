@@ -1,7 +1,7 @@
 import { call, put } from 'redux-saga/effects';
 
 import { createRequest } from '../../helpers';
-import { fetchUser } from '../requests';
+import { fetchUser } from '../api';
 
 const { actionTypes, actionCreators, reducer } = createRequest('users/requests/fetchUser');
 
