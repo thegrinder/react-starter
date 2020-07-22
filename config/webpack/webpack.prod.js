@@ -4,7 +4,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 const PATHS = require('../paths');
 
@@ -17,8 +16,6 @@ const htmlPlugin = new HtmlWebpackPlugin({
 const extractCssPlugin = new MiniCssExtractPlugin({
   filename: 'index.css',
 });
-
-const analyzerPlugin = new BundleAnalyzerPlugin();
 
 const compressionPlugin = new CompressionPlugin();
 
@@ -78,7 +75,7 @@ const prodConfig = {
       },
     ],
   },
-  plugins: [htmlPlugin, extractCssPlugin, compressionPlugin, analyzerPlugin],
+  plugins: [htmlPlugin, extractCssPlugin, compressionPlugin],
 };
 
 module.exports = prodConfig;
