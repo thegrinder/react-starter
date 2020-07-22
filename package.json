@@ -31,6 +31,7 @@
   },
   "husky": {
     "hooks": {
+      "commit-msg": "commitlint --config config/commitlint/commitlint.config.js -E HUSKY_GIT_PARAMS",
       "pre-commit": "lint-staged && npm run test"
     }
   },
@@ -51,6 +52,8 @@
     "@babel/plugin-transform-runtime": "^7.10.5",
     "@babel/preset-env": "^7.10.4",
     "@babel/preset-react": "^7.10.4",
+    "@commitlint/cli": "^9.1.1",
+    "@commitlint/config-conventional": "^9.1.1",
     "@testing-library/jest-dom": "^5.11.1",
     "@testing-library/react": "^10.4.7",
     "babel-eslint": "^10.1.0",
