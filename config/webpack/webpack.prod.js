@@ -27,8 +27,10 @@ const terserPlugin = new TerserPlugin({
 
 const optimizeCssPlugin = new OptimizeCSSAssetsPlugin({});
 
+const mode = 'production';
+
 const prodConfig = {
-  mode: 'production',
+  mode,
   entry: [PATHS.app],
   output: {
     path: PATHS.build,
@@ -68,6 +70,9 @@ const prodConfig = {
             options: {
               config: {
                 path: path.join(PATHS.config, 'postcss'),
+                ctx: {
+                  mode,
+                },
               },
             },
           },
