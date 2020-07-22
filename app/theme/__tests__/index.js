@@ -1,4 +1,4 @@
-import components from '../components';
+import components from '..';
 
 describe('components theme', () => {
   it('should be defined', () => {

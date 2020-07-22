@@ -9,7 +9,7 @@ module.exports = {
     jest: true,
   },
   extends: ['airbnb', 'prettier'],
-  plugins: ['react', 'prettier'],
+  plugins: ['react'],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -24,23 +24,13 @@ module.exports = {
   },
   rules: {
     'no-underscore-dangle': 'off',
-    'consistent-return': 'off',
-    'react/jsx-uses-react': 'error',
     'react/jsx-filename-extension': 'off',
     'react/forbid-prop-types': 'off',
-    'react/jsx-wrap-multilines': 'off',
-    'jsx-a11y/label-has-for': 'off',
+    'react/jsx-props-no-spreading': 'off',
     'import/no-extraneous-dependencies': [
       'error',
       {
         devDependencies: ['**/config/**/*.js'],
-      },
-    ],
-    'prettier/prettier': [
-      'error',
-      {
-        singleQuote: true,
-        trailingComma: 'es5',
       },
     ],
   },

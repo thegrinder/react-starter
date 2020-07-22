@@ -21,7 +21,7 @@ export const Users = () => {
     name: '',
   };
 
-  const onSubmit = values => {
+  const onSubmit = (values) => {
     dispatch(fetchUsersActions.trigger(values));
   };
 

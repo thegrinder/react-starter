@@ -5,7 +5,7 @@ export const initialRequestState = {
   succeeded: false,
 };
 
-export const createRequest = namespace => {
+export const createRequest = (namespace) => {
   const actionTypes = {
     FAILED: `${namespace}/FAILED`,
     FULFILLED: `${namespace}/FULFILLED`,
@@ -17,7 +17,7 @@ export const createRequest = namespace => {
   };
 
   const actionCreators = {
-    failed: error => ({ error, type: actionTypes.FAILED }),
+    failed: (error) => ({ error, type: actionTypes.FAILED }),
     succeeded: () => ({ type: actionTypes.SUCCEEDED }),
     fulfilled: () => ({ type: actionTypes.FULFILLED }),
     loading: () => ({ type: actionTypes.LOADING }),

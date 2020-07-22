@@ -46,7 +46,7 @@ describe('fetchUserSaga', () => {
 
     await runSaga(
       {
-        dispatch: action => dispatched.push(action),
+        dispatch: (action) => dispatched.push(action),
         getState: () => {},
       },
       fetchUserSaga,
@@ -69,7 +69,7 @@ describe('fetchUserSaga', () => {
 
     await runSaga(
       {
-        dispatch: action => dispatched.push(action),
+        dispatch: (action) => dispatched.push(action),
         getState: () => {},
       },
       fetchUserSaga,

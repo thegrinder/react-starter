@@ -22,10 +22,10 @@ const loading = keyframes`
 const Spinner = styled.span.attrs(({ intl }) => ({
   'aria-label': intl.formatMessage(messages.spinner),
 }))`
-  width: ${props => rem(props.sizing)(props)};
-  height: ${props => rem(props.sizing)(props)};
+  width: ${(props) => rem(props.sizing)(props)};
+  height: ${(props) => rem(props.sizing)(props)};
   border-radius: 100%;
-  border: 2px solid ${props => getColor(props.color)(props)};
+  border: 2px solid ${(props) => getColor(props.color)(props)};
   border-bottom-color: transparent;
   animation: ${loading} 0.75s 0s infinite linear;
   vertical-align: middle;

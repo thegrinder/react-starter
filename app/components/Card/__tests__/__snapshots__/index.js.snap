@@ -2,7 +2,7 @@
 
 exports[`<Card /> should render correctly with default props and children 1`] = `
 <div
-  class="sc-bdVaJa bcfDey"
+  class="sc-AxjAm fmBLZE"
 >
   <span>
     children

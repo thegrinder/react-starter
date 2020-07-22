@@ -11,7 +11,7 @@ const { actionTypes, actionCreators, reducer } = createRequest(
 export const fetchUsersActionTypes = actionTypes;
 export const fetchUsersReducer = reducer;
 
-const fetchUsersUpdate = data => ({
+const fetchUsersUpdate = (data) => ({
   data,
   type: actionTypes.UPDATE,
 });

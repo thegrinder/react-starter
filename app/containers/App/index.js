@@ -7,7 +7,7 @@ import { IntlProvider } from 'react-intl';
 import { configureStore, runSaga } from 'modules/store';
 import Main from '../Main';
 
-import theme from '../../theme/components';
+import theme from '../../theme';
 import '../../index.css';
 
 const store = configureStore();

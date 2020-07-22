@@ -14,7 +14,7 @@ import { User } from '..';
 
 const id = 'id';
 
-const renderComponent = store =>
+const renderComponent = (store) =>
   render(
     <MemoryRouter initialEntries={[`/users/${id}`]}>
       <Provider store={store}>

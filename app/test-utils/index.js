@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import configureStore from 'redux-mock-store';
 import { IntlProvider } from 'react-intl';
 import { ThemeProvider } from 'styled-components';
-import * as RTL from 'react-testing-library';
+import * as RTL from '@testing-library/react';
 
-import theme from '../theme/components';
+import theme from '../theme';
 
 const propTypes = {
   children: PropTypes.node.isRequired,

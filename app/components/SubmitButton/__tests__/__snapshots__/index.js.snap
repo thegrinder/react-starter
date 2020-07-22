@@ -2,11 +2,11 @@
 
 exports[`<SubmitButton /> should render correctly 1`] = `
 <button
-  class="StyledButton-k0ad56-0 hzwlwW"
+  class="StyledButton-k0ad56-0 kmtuFU"
   type="submit"
 >
   <span
-    class="ChildrenWrapper-sc-30uoyc-0 cdOdhF"
+    class="ContentWrapper-juvto2-0 JtTDb"
   >
     click me
   </span>

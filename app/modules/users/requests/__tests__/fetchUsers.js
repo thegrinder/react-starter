@@ -47,7 +47,7 @@ describe('fetchUsersSaga', () => {
 
     await runSaga(
       {
-        dispatch: action => dispatched.push(action),
+        dispatch: (action) => dispatched.push(action),
         getState: () => {},
       },
       fetchUsersSaga,
@@ -71,7 +71,7 @@ describe('fetchUsersSaga', () => {
 
     await runSaga(
       {
-        dispatch: action => dispatched.push(action),
+        dispatch: (action) => dispatched.push(action),
         getState: () => {},
       },
       fetchUsersSaga,

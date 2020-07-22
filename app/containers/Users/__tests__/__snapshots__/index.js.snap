@@ -2,10 +2,10 @@
 
 exports[`<Users /> should render correctly 1`] = `
 <div
-  class="pv-6 sc-bdVaJa hGfkPm"
+  class="sc-AxjAm PKtaI pv-6"
 >
   <div
-    class="pa-8 sc-htpNat fEfKmN"
+    class="sc-AxiKw kEQWPf pa-8"
   >
     <form
       class="flex flex-row items-start -mh-4"
@@ -18,7 +18,7 @@ exports[`<Users /> should render correctly 1`] = `
         >
           
           <input
-            class="StyledInput-ok3pz6-0 buStls"
+            class="StyledInput-ok3pz6-0 dIiHDz"
             id="search"
             placeholder="Search"
             value=""
@@ -32,11 +32,11 @@ exports[`<Users /> should render correctly 1`] = `
         class="col-auto ph-4"
       >
         <button
-          class="StyledButton-k0ad56-0 hzwlwW"
+          class="StyledButton-k0ad56-0 kmtuFU"
           type="submit"
         >
           <span
-            class="ChildrenWrapper-sc-30uoyc-0 cdOdhF"
+            class="ContentWrapper-juvto2-0 JtTDb"
           >
             Search
           </span>
@@ -45,7 +45,7 @@ exports[`<Users /> should render correctly 1`] = `
     </form>
     <div>
       <h5
-        class="StyledHeading-fbinjh-0 geivid"
+        class="StyledHeading-fbinjh-0 iIdOeV"
         color="default"
       >
         Results:

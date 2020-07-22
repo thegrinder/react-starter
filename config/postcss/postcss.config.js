@@ -3,7 +3,7 @@ const prefixer = require('postcss-prefix-selector');
 
 module.exports = {
   plugins: [
-    tailwindcss('./app/theme/tailwind.js'),
+    tailwindcss(),
     prefixer({
       prefix: 'html',
       transform: (prefix, selector, prefixedSelector) =>

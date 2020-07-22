@@ -4,7 +4,7 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 
 import { GlobalStyles, InfiniteProgressBar } from 'components';
 
-const createLazyComponent = Component => () => (
+const createLazyComponent = (Component) => () => (
   <Suspense fallback={<InfiniteProgressBar />}>
     <Component />
   </Suspense>

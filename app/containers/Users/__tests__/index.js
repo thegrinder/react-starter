@@ -8,7 +8,7 @@ import { createState, createRequestState } from 'modules/users/test-utils';
 
 import { Users } from '..';
 
-const renderComponent = store =>
+const renderComponent = (store) =>
   render(
     <MemoryRouter>
       <Provider store={store}>

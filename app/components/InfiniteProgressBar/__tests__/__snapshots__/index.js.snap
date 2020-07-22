@@ -2,7 +2,7 @@
 
 exports[`<InfiniteProgressBar /> should render correctly with default props 1`] = `
 <div
-  class="sc-bdVaJa kxYSrp"
+  class="sc-AxjAm jJhwMO"
   color="primary100"
 />
 `;

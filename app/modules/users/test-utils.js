@@ -36,6 +36,6 @@ export const createUsersState = ({
   },
 });
 
-export const createState = args => ({
+export const createState = (args) => ({
   users: createUsersState(args),
 });
