@@ -1,6 +1,4 @@
-### rr-starter
-
-React redux starter
+### react-starter
 
 ## IDE integration
 

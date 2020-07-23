@@ -1,5 +1,5 @@
 {
-  "name": "rr-starter",
+  "name": "react-starter",
   "version": "0.0.0",
   "description": "React starter",
   "keywords": [
@@ -8,10 +8,10 @@
     "styled-components",
     "tailwindcss"
   ],
-  "homepage": "https://github.com/thegrinder/rr-starter",
+  "homepage": "https://github.com/thegrinder/react-starter",
   "repository": {
     "type": "git",
-    "url": "https://github.com/thegrinder/rr-starter.git"
+    "url": "https://github.com/thegrinder/react-starter.git"
   },
   "main": "./dist/index.js",
   "scripts": {
