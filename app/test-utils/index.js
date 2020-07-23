@@ -1,7 +1,5 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import PropTypes from 'prop-types';
-import configureStore from 'redux-mock-store';
 import { IntlProvider } from 'react-intl';
 import { ThemeProvider } from 'styled-components';
 import * as RTL from '@testing-library/react';
@@ -24,5 +22,3 @@ export const render = (ui, options) =>
   RTL.render(ui, { wrapper: Providers, ...options });
 
 export const { fireEvent, act } = RTL;
-
-export const createStore = configureStore();

@@ -1,6 +1,6 @@
 import React, { lazy, Suspense } from 'react';
 import { ResetCss } from 'basic-styled-uikit';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import { GlobalStyles, InfiniteProgressBar } from 'components';
 
@@ -10,21 +10,17 @@ const createLazyComponent = (Component) => () => (
   </Suspense>
 );
 
-const Users = lazy(() => import('../Users'));
-const User = lazy(() => import('../User'));
-
-const LazyUsers = createLazyComponent(Users);
-const LazyUser = createLazyComponent(User);
+const Home = lazy(() => import('../Home/Home'));
+const LazyHome = createLazyComponent(Home);
 
 const Main = () => (
   <>
     <ResetCss />
     <GlobalStyles />
     <Switch>
-      <Route path="/users/:id" component={LazyUser} />
-      <Route path="/users" component={LazyUsers} />
-      <Redirect to="/users" component={LazyUsers} />
+      <Route path="/" component={LazyHome} />
     </Switch>
   </>
 );
+
 export default Main;
