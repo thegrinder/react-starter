@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { render } from 'test-utils';
+
 import InfiniteProgressBar from '../InfiniteProgressBar';
 
 const renderComponent = (props = {}) =>

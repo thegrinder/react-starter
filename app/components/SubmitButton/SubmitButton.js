@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from 'basic-styled-uikit';
+
 import Spinner from '../Spinner/Spinner';
 
 const SubmitButton = (props) => (

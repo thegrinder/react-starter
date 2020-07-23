@@ -1,4 +1,5 @@
 const path = require('path');
+
 const PATHS = require('../paths');
 
 module.exports = {
@@ -30,6 +31,20 @@ module.exports = {
       'error',
       {
         devDependencies: ['**/config/**/*.js', '**/app/test-utils/**/*.js'],
+      },
+    ],
+    'import/order': [
+      'error',
+      {
+        groups: [
+          'builtin',
+          'external',
+          'internal',
+          'parent',
+          'sibling',
+          'index',
+        ],
+        'newlines-between': 'always',
       },
     ],
   },
