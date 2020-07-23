@@ -1,4 +1,3 @@
-const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -9,7 +8,6 @@ const htmlPlugin = new HtmlWebpackPlugin({
   filename: 'index.html',
   inject: 'body',
 });
-const namedModulesPlugin = new webpack.NamedModulesPlugin();
 
 const devConfig = {
   mode: 'development',
@@ -20,6 +18,9 @@ const devConfig = {
     publicPath: '/',
   },
   context: PATHS.app,
+  optimization: {
+    namedModules: true,
+  },
   devtool: 'cheap-module-source-map',
   devServer: {
     contentBase: PATHS.build,
@@ -57,7 +58,7 @@ const devConfig = {
       },
     ],
   },
-  plugins: [htmlPlugin, namedModulesPlugin],
+  plugins: [htmlPlugin],
 };
 
 module.exports = devConfig;
