@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { render } from 'test-utils';
-import Container from '..';
+import Container from '../Container';
 
 const children = <span>children</span>;
 

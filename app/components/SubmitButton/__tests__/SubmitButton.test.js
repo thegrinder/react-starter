@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { render } from 'test-utils';
-import SubmitButton from '..';
+import SubmitButton from '../SubmitButton';
 
 const renderComponent = () => render(<SubmitButton>click me</SubmitButton>);
 
