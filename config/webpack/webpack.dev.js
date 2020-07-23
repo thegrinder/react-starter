@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const PATHS = require('../paths');
 
 const htmlPlugin = new HtmlWebpackPlugin({
-  template: path.join(PATHS.app, 'index.html'),
+  template: path.join(PATHS.app, 'index.ejs'),
   filename: 'index.html',
   inject: 'body',
 });
