@@ -6,7 +6,7 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 
-const PATHS = require('../paths');
+const PATHS = require('./paths');
 
 const htmlPlugin = new HtmlWebpackPlugin({
   template: path.join(PATHS.app, 'index.ejs'),
@@ -52,25 +52,17 @@ const prodConfig = {
       {
         test: /\.(js)$/,
         exclude: [/node_modules/],
-        use: {
-          loader: 'babel-loader',
-          options: {
-            root: path.join(PATHS.config, 'babel'),
-          },
-        },
+        use: [{ loader: 'babel-loader' }],
       },
       {
         test: /\.css$/,
         use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-          },
+          { loader: MiniCssExtractPlugin.loader },
           { loader: 'css-loader' },
           {
             loader: 'postcss-loader',
             options: {
               config: {
-                path: path.join(PATHS.config, 'postcss'),
                 ctx: {
                   mode,
                 },

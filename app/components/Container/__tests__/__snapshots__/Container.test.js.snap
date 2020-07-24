@@ -2,7 +2,7 @@
 
 exports[`<Container /> should render correctly with default props and children 1`] = `
 <div
-  class="sc-AxjAm PKtaI"
+  class="sc-AxjAm iYlgcX"
 >
   <span>
     children

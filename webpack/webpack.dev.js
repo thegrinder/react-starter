@@ -2,7 +2,7 @@ const path = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const PATHS = require('../paths');
+const PATHS = require('./paths');
 
 const htmlPlugin = new HtmlWebpackPlugin({
   template: path.join(PATHS.app, 'index.ejs'),
@@ -35,26 +35,14 @@ const devConfig = {
       {
         test: /\.(js)$/,
         exclude: [/node_modules/],
-        use: {
-          loader: 'babel-loader',
-          options: {
-            root: path.join(PATHS.config, 'babel'),
-          },
-        },
+        use: [{ loader: 'babel-loader' }],
       },
       {
         test: /\.css$/,
         use: [
           { loader: 'style-loader' },
           { loader: 'css-loader' },
-          {
-            loader: 'postcss-loader',
-            options: {
-              config: {
-                path: path.join(PATHS.config, 'postcss'),
-              },
-            },
-          },
+          { loader: 'postcss-loader' },
         ],
       },
     ],

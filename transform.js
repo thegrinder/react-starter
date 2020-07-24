@@ -1,5 +1,5 @@
 const babelJest = require('babel-jest');
 
-const babelConfig = require('../babel/babel.config');
+const babelConfig = require('./babel.config');
 
 module.exports = babelJest.createTransformer(babelConfig);
