@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "description": "React starter",
   "keywords": [
-    "basic-styled-uikit",
     "react",
     "styled-components",
     "tailwindcss"
@@ -67,6 +66,7 @@
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-react": "^7.20.3",
+    "eslint-plugin-react-hooks": "^4.0.8",
     "html-webpack-plugin": "^4.3.0",
     "husky": "^4.2.5",
     "jest": "^26.1.0",
@@ -85,13 +85,10 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
-    "eslint-plugin-react-hooks": "^4.0.8",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-handy-hooks": "^1.9.0",
     "react-intl": "^5.4.1",
-    "react-modal": "^3.11.2",
     "react-router-dom": "^5.2.0",
     "styled-components": "^5.1.1"
   }
