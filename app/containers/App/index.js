@@ -1,15 +1,12 @@
 import React from 'react';
-import { HashRouter, Route } from 'react-router-dom';
 import { IntlProvider } from 'react-intl';
 
+import Home from '../Home/Home';
 import '../../index.css';
-import Main from '../Main/Main';
 
 const App = () => (
   <IntlProvider locale="en">
-    <HashRouter>
-      <Route path="/" component={Main} />
-    </HashRouter>
+    <Home />
   </IntlProvider>
 );
 
