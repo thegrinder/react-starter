@@ -1,19 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { IntlProvider } from 'react-intl';
-import { ThemeProvider } from 'styled-components';
 import * as RTL from '@testing-library/react';
-
-import theme from '../theme';
 
 const propTypes = {
   children: PropTypes.node.isRequired,
 };
 
 const Providers = ({ children }) => (
-  <IntlProvider locale="en">
-    <ThemeProvider theme={theme}>{children}</ThemeProvider>
-  </IntlProvider>
+  <IntlProvider locale="en">{children}</IntlProvider>
 );
 
 Providers.propTypes = propTypes;

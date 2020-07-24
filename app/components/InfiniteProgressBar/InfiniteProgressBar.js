@@ -1,6 +1,4 @@
-import PropTypes from 'prop-types';
 import styled, { keyframes } from 'styled-components';
-import { getColor, rem } from 'basic-styled-uikit';
 
 const increase = keyframes`
   from { left: -15%; width: 5%; }
@@ -12,27 +10,17 @@ const decrease = keyframes`
   to { left: 110%; width: 10%; }
 `;
 
-const propTypes = {
-  color: PropTypes.string,
-  bgColor: PropTypes.string,
-};
-
-const defaultProps = {
-  color: 'primary100',
-  bgColor: 'primary500',
-};
-
 const InfiniteProgressBar = styled.div`
   position: relative;
-  height: ${rem(5)};
+  height: 5px;
   overflow-x: hidden;
-  background: ${({ theme, bgColor }) => getColor(bgColor)({ theme })};
+  background: #2196f3;
   &:before,
   &:after {
     content: '';
     position: absolute;
-    background: ${({ theme, color }) => getColor(color)({ theme })};
-    height: ${rem(5)};
+    background: #e3f2fd;
+    height: 5px;
     width: 10%;
     left: -15%;
   }
@@ -43,8 +31,5 @@ const InfiniteProgressBar = styled.div`
     animation: ${decrease} 2s 0.5s infinite;
   }
 `;
-
-InfiniteProgressBar.propTypes = propTypes;
-InfiniteProgressBar.defaultProps = defaultProps;
 
 export default InfiniteProgressBar;

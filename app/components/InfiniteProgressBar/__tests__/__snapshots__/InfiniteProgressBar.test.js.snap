@@ -1,8 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`<InfiniteProgressBar /> should render correctly with default props 1`] = `
-<div
-  class="sc-AxjAm jJhwMO"
-  color="primary100"
-/>
-`;

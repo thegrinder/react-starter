@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`<Spinner /> should render correctly with default props 1`] = `
-<span
-  aria-label="loading..."
-  class="sc-AxjAm hxsCRF"
-  color="black"
-/>
-`;
