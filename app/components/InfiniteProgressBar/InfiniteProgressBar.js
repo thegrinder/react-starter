@@ -10,7 +10,7 @@ const decrease = keyframes`
   to { left: 110%; width: 10%; }
 `;
 
-const InfiniteProgressBar = styled.div`
+export const InfiniteProgressBar = styled.div`
   position: relative;
   height: 5px;
   overflow-x: hidden;
@@ -31,5 +31,3 @@ const InfiniteProgressBar = styled.div`
     animation: ${decrease} 2s 0.5s infinite;
   }
 `;
-
-export default InfiniteProgressBar;
