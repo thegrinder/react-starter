@@ -1,8 +1,6 @@
 const path = require('path');
 
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 
@@ -14,10 +12,6 @@ const htmlPlugin = new HtmlWebpackPlugin({
   inject: 'body',
 });
 
-const extractCssPlugin = new MiniCssExtractPlugin({
-  filename: 'index.css',
-});
-
 const compressionPlugin = new CompressionPlugin();
 
 const terserPlugin = new TerserPlugin({
@@ -25,8 +19,6 @@ const terserPlugin = new TerserPlugin({
   parallel: true,
   sourceMap: true,
 });
-
-const optimizeCssPlugin = new OptimizeCSSAssetsPlugin({});
 
 const mode = 'production';
 
@@ -39,7 +31,7 @@ const prodConfig = {
     publicPath: '/',
   },
   optimization: {
-    minimizer: [terserPlugin, optimizeCssPlugin],
+    minimizer: [terserPlugin],
     splitChunks: {
       chunks: 'all',
     },
@@ -54,26 +46,9 @@ const prodConfig = {
         exclude: [/node_modules/],
         use: [{ loader: 'babel-loader' }],
       },
-      {
-        test: /\.css$/,
-        use: [
-          { loader: MiniCssExtractPlugin.loader },
-          { loader: 'css-loader' },
-          {
-            loader: 'postcss-loader',
-            options: {
-              config: {
-                ctx: {
-                  mode,
-                },
-              },
-            },
-          },
-        ],
-      },
     ],
   },
-  plugins: [htmlPlugin, extractCssPlugin, compressionPlugin],
+  plugins: [htmlPlugin, compressionPlugin],
 };
 
 module.exports = prodConfig;
